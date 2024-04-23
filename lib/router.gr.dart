@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    CanvasRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CanvasScreen(),
+      );
+    },
     ChoiceRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -52,6 +58,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [CanvasScreen]
+class CanvasRoute extends PageRouteInfo<void> {
+  const CanvasRoute({List<PageRouteInfo>? children})
+      : super(
+          CanvasRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CanvasRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

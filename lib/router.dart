@@ -12,8 +12,13 @@ class AppRouter extends _$AppRouter {
         // Common
         SlideRoute(
           path: RouteConstants.choice,
-          page: ChoiceRoute.page,
+          page: CanvasRoute.page,
           initial: true,
+        ),
+        SlideRoute(
+          path: RouteConstants.choice,
+          page: ChoiceRoute.page,
+          // initial: true,
         ),
 
         // Doctor screens

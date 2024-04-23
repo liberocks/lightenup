@@ -48,6 +48,7 @@ dependencies:
   flutter_udid: ^3.0.0
   crypto: ^3.0.3
   nested: ^1.0.0
+  hexcolor: ^3.0.1
 
 dev_dependencies:
   flutter_test:

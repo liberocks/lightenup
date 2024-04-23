@@ -9,7 +9,7 @@ class PatientMoodTrackerCubit extends HydratedCubit<PatientMoodTrackerState> {
   void addMood(PatientMood mood) {
     final moods = state.moods;
     moods.add(mood);
-    
+
     emit(state.copyWith(moods: moods));
   }
 
