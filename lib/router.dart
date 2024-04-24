@@ -12,22 +12,25 @@ class AppRouter extends _$AppRouter {
         // Common
         SlideRoute(
           path: RouteConstants.choice,
-          page: CanvasRoute.page,
-          initial: true,
-        ),
-        SlideRoute(
-          path: RouteConstants.choice,
           page: ChoiceRoute.page,
-          // initial: true,
+          initial: true,
         ),
 
         // Doctor screens
+        SlideRoute(
+          path: RouteConstants.doctor,
+          page: DoctorMainRoute.page,
+        ),
         SlideRoute(
           path: RouteConstants.doctorHome,
           page: DoctorHomeRoute.page,
         ),
 
         // Patient screens
+        SlideRoute(
+          path: RouteConstants.patient,
+          page: PatientMainRoute.page,
+        ),
         SlideRoute(
           path: RouteConstants.patientHome,
           page: PatientHomeRoute.page,

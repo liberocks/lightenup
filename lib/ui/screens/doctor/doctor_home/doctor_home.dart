@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:lightenup/ui/widgets/widgets.dart';
 
 @RoutePage()
 class DoctorHomeScreen extends StatelessWidget {
@@ -7,6 +8,11 @@ class DoctorHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Layout(
+      child: Container(),
+      appBar: AppBar(
+        title: Text("Doctor's Home"),
+      ),
+    );
   }
 }

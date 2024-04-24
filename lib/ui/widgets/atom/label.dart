@@ -6,22 +6,22 @@ class Label extends StatelessWidget {
     required this.text,
     this.color,
     super.key,
-    this.size = 'medium',
+    this.size = SizeOfThing.medium,
   });
 
   final String text;
 
-  final String size;
+  final SizeOfThing size;
 
   final Color? color;
 
   double get fontSize {
     switch (size) {
-      case 'small':
+      case SizeOfThing.small:
         return 11;
-      case 'medium':
+      case SizeOfThing.medium:
         return 12;
-      case 'large':
+      case SizeOfThing.large:
         return 14;
       default:
         return 12;
@@ -30,11 +30,11 @@ class Label extends StatelessWidget {
 
   double get fontHeight {
     switch (size) {
-      case 'small':
+      case SizeOfThing.small:
         return 16 / 11;
-      case 'medium':
+      case SizeOfThing.medium:
         return 16 / 12;
-      case 'large':
+      case SizeOfThing.large:
         return 20 / 14;
       default:
         return 16 / 12;
