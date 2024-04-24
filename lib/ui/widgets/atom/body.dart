@@ -52,7 +52,7 @@ class Body extends StatelessWidget {
       style: TextStyle(
         fontSize: fontSize,
         height: fontHeight,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w400,
         fontFamily: 'Inter',
         color: fontColor,
         decoration: TextDecoration.none,

@@ -13,9 +13,10 @@ class PatientScheduleScreen extends StatelessWidget {
     return BlocBuilder<PatientNavigationCubit, PatientNavigationState>(
       builder: (context, patientNavigationState) {
         return Layout(
+          appBar: AppBar(title: const Text('Schedule')),
           child: Container(
             color: Colors.white,
-            child: const Text('Home'),
+            child: Container(),
           ),
         );
       },
