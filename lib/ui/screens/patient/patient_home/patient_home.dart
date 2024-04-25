@@ -127,8 +127,11 @@ class PatientHomeScreen extends StatelessWidget {
                                       const SizedBox(width: 16),
                                       RichText(
                                         text: TextSpan(
-                                          style: const TextStyle(
-                                            color: Colors.black,
+                                          style: TextStyle(
+                                            color: HexColor(
+                                              patientMood?.colorHex ??
+                                                  '#000000',
+                                            ),
                                             fontFamily: 'Inter',
                                             fontSize: 14,
                                           ),
