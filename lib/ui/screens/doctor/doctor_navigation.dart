@@ -19,6 +19,7 @@ class DoctorMainScreen extends StatelessWidget {
               doctorNavigationState.when(home: () => const DoctorHomeScreen()),
               Container(
                 alignment: Alignment.bottomCenter,
+                color: Colors.white,
                 height: MediaQuery.of(context).size.height,
                 child: Container(
                   alignment: Alignment.center,

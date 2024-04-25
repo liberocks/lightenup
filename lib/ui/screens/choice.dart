@@ -13,37 +13,44 @@ class ChoiceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double boxSize = (MediaQuery.of(context).size.width / 2) - 32;
+
+    if (boxSize <= 0) {
+      boxSize = 150;
+    }
+
     return Layout(
       child: SizedBox(
         height: double.infinity,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(width: 16),
-            ChoiceCard(
-              boxSize: boxSize,
-              icon: Icons.personal_injury,
-              text: 'Patient',
-              color: Colors.cyan[500]!,
-              onTap: () {
-                context.read<ChoiceCubit>().setMode(ModeChoice.patient);
-                context.read<PatientNavigationCubit>().switchToHome();
-                context.router.push(const PatientMainRoute());
-              },
-            ),
-            const SizedBox(width: 16),
-            ChoiceCard(
-              boxSize: boxSize,
-              icon: Icons.local_hospital,
-              text: 'Doctor',
-              color: Colors.purple[400]!,
-              onTap: () {
-                context.read<ChoiceCubit>().setMode(ModeChoice.doctor);
-                context.read<DoctorNavigationCubit>().switchToHome();
-                context.router.push(const DoctorMainRoute());
-              },
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ChoiceCard(
+                boxSize: boxSize,
+                icon: Icons.personal_injury,
+                text: 'Patient',
+                color: Colors.cyan[500]!,
+                onTap: () {
+                  context.read<ChoiceCubit>().setMode(ModeChoice.patient);
+                  context.read<PatientNavigationCubit>().switchToHome();
+                  context.router.push(const PatientMainRoute());
+                },
+              ),
+              ChoiceCard(
+                boxSize: boxSize,
+                icon: Icons.local_hospital,
+                text: 'Doctor',
+                color: Colors.purple[400]!,
+                onTap: () {
+                  context.read<ChoiceCubit>().setMode(ModeChoice.doctor);
+                  context.read<DoctorNavigationCubit>().switchToHome();
+                  context.router.push(const DoctorMainRoute());
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

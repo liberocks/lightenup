@@ -24,7 +24,9 @@ class TodoCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Container(
         alignment: Alignment.center,
-        height: 96,
+        constraints: const BoxConstraints(
+          minHeight: 96,
+        ),
         width: double.infinity,
         decoration: BoxDecoration(
           color: HexColor('#FEF7FF'),
