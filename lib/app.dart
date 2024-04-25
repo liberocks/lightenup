@@ -36,6 +36,15 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: <SingleChildWidget>[
+        BlocProvider<ChoiceCubit>(
+          create: (BuildContext context) => ChoiceCubit(),
+        ),
+        BlocProvider<PatientNavigationCubit>(
+          create: (BuildContext context) => PatientNavigationCubit(),
+        ),
+        BlocProvider<DoctorNavigationCubit>(
+          create: (BuildContext context) => DoctorNavigationCubit(),
+        ),
         BlocProvider<PatientMoodTrackerCubit>(
           create: (BuildContext context) => PatientMoodTrackerCubit(),
         ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lightenup/constants/constants.dart';
 
-class Label extends StatelessWidget {
-  const Label({
+class Display extends StatelessWidget {
+  const Display({
     required this.text,
-    this.color,
     super.key,
     this.size = SizeOfThing.medium,
+    this.color,
   });
 
   final String text;
@@ -18,26 +18,26 @@ class Label extends StatelessWidget {
   double get fontSize {
     switch (size) {
       case SizeOfThing.small:
-        return 11;
+        return 36;
       case SizeOfThing.medium:
-        return 12;
+        return 45;
       case SizeOfThing.large:
-        return 14;
+        return 57;
       default:
-        return 12;
+        return 45;
     }
   }
 
   double get fontHeight {
     switch (size) {
       case SizeOfThing.small:
-        return 16 / 11;
+        return 44 / 36;
       case SizeOfThing.medium:
-        return 16 / 12;
+        return 52 / 45;
       case SizeOfThing.large:
-        return 20 / 14;
+        return 64 / 57;
       default:
-        return 16 / 12;
+        return 52 / 45;
     }
   }
 
@@ -53,7 +53,7 @@ class Label extends StatelessWidget {
         fontSize: fontSize,
         height: fontHeight,
         fontWeight: FontWeight.w500,
-        fontFamily: 'Inter',
+        fontFamily: 'Rubik',
         color: fontColor,
         decoration: TextDecoration.none,
       ),

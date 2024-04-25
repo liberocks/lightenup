@@ -2,21 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:lightenup/constants/constants.dart';
 
 class Body extends StatelessWidget {
-  const Body({required this.text, super.key, this.size = 'medium', this.color});
+  const Body({
+    required this.text,
+    super.key,
+    this.size = SizeOfThing.medium,
+    this.color,
+  });
 
   final String text;
 
-  final String size;
+  final SizeOfThing size;
 
   final Color? color;
 
   double get fontSize {
     switch (size) {
-      case 'small':
+      case SizeOfThing.small:
         return 12;
-      case 'medium':
+      case SizeOfThing.medium:
         return 14;
-      case 'large':
+      case SizeOfThing.large:
         return 16;
       default:
         return 14;
@@ -25,11 +30,11 @@ class Body extends StatelessWidget {
 
   double get fontHeight {
     switch (size) {
-      case 'small':
+      case SizeOfThing.small:
         return 16 / 12;
-      case 'medium':
+      case SizeOfThing.medium:
         return 20 / 14;
-      case 'large':
+      case SizeOfThing.large:
         return 24 / 16;
       default:
         return 20 / 14;
@@ -47,7 +52,7 @@ class Body extends StatelessWidget {
       style: TextStyle(
         fontSize: fontSize,
         height: fontHeight,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w400,
         fontFamily: 'Inter',
         color: fontColor,
         decoration: TextDecoration.none,

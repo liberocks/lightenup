@@ -5,23 +5,23 @@ class Headline extends StatelessWidget {
   const Headline({
     required this.text,
     super.key,
-    this.size = 'medium',
+    this.size = SizeOfThing.medium,
     this.color,
   });
 
   final String text;
 
-  final String size;
+  final SizeOfThing size;
 
   final Color? color;
 
   double get fontSize {
     switch (size) {
-      case 'small':
+      case SizeOfThing.small:
         return 24;
-      case 'medium':
+      case SizeOfThing.medium:
         return 28;
-      case 'large':
+      case SizeOfThing.large:
         return 32;
       default:
         return 28;
@@ -30,11 +30,11 @@ class Headline extends StatelessWidget {
 
   double get fontHeight {
     switch (size) {
-      case 'small':
+      case SizeOfThing.small:
         return 32 / 24;
-      case 'medium':
+      case SizeOfThing.medium:
         return 36 / 28;
-      case 'large':
+      case SizeOfThing.large:
         return 40 / 32;
       default:
         return 36 / 28;
