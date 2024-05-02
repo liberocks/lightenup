@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:lightenup/constants/constants.dart';
 
 class Chips extends StatelessWidget {
@@ -8,6 +9,7 @@ class Chips extends StatelessWidget {
     super.key,
     this.background,
     this.color,
+    this.selected = false,
   });
 
   final String text;
@@ -17,6 +19,8 @@ class Chips extends StatelessWidget {
   final Color? background;
 
   final void Function() onPressed;
+
+  final bool selected;
 
   Color get fontColor {
     return color ?? ThemeColor.pale;
@@ -30,11 +34,14 @@ class Chips extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: backgroundColor,
+        backgroundColor: selected ? HexColor('#6750A4') : backgroundColor,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
-          side: BorderSide(color: fontColor, width: 1),
+          side: BorderSide(
+            color: fontColor,
+            width: 1,
+          ),
         ),
         elevation: 0,
       ),
@@ -47,7 +54,7 @@ class Chips extends StatelessWidget {
           fontWeight: FontWeight.w500,
           fontFamily: 'Roboto',
           letterSpacing: 0.1,
-          color: fontColor,
+          color: selected ? Colors.white : fontColor,
           decoration: TextDecoration.none,
         ),
       ),

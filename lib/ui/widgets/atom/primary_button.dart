@@ -8,6 +8,8 @@ class PrimaryButton extends StatelessWidget {
     super.key,
     this.background,
     this.color,
+    this.disabled,
+    this.loading = false,
   });
 
   final String text;
@@ -17,6 +19,10 @@ class PrimaryButton extends StatelessWidget {
   final Color? background;
 
   final void Function() onPressed;
+
+  final bool? disabled;
+
+  final bool loading;
 
   Color get fontColor {
     return color ?? ThemeColor.white;
@@ -37,19 +43,29 @@ class PrimaryButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(99),
           ),
         ),
-        onPressed: onPressed,
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 14,
-            height: 20 / 14,
-            fontWeight: FontWeight.w500,
-            fontFamily: 'Roboto',
-            letterSpacing: 0.3,
-            color: fontColor,
-            decoration: TextDecoration.none,
-          ),
-        ),
+        onPressed:
+            (disabled != null && disabled!) || loading ? null : onPressed,
+        child: loading
+            ? SizedBox(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(
+                  color: Colors.grey[600],
+                  strokeWidth: 2,
+                ),
+              )
+            : Text(
+                text,
+                style: TextStyle(
+                  fontSize: 14,
+                  height: 20 / 14,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'Roboto',
+                  letterSpacing: 0.3,
+                  color: fontColor,
+                  decoration: TextDecoration.none,
+                ),
+              ),
       ),
     );
   }

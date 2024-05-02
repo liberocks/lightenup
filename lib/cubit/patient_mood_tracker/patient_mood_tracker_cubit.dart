@@ -6,18 +6,38 @@ import 'package:lightenup/data/model/model.dart';
 class PatientMoodTrackerCubit extends HydratedCubit<PatientMoodTrackerState> {
   PatientMoodTrackerCubit() : super(const PatientMoodTrackerState.initial());
 
+  /// getter
+  int get latestId {
+    return state.moods.isEmpty ? 0 : state.moods.last.id;
+  }
+
+  /// mutator
   void addMood(PatientMood mood) {
-    final moods = state.moods;
+    List<PatientMood> moods = state.moods.toList();
     moods.add(mood);
 
     emit(state.copyWith(moods: moods));
   }
 
   void removeMood(int index) {
-    final moods = state.moods;
-    moods.where((element) => element.id != index);
+    List<PatientMood> moods = state.moods.toList();
+
+    moods = moods.where((element) => element.id != index).toList();
 
     emit(state.copyWith(moods: moods));
+  }
+
+  PatientMood? getMoodByDate(DateTime date) {
+    try {
+      return state.moods.firstWhere(
+        (element) =>
+            element.date.year == date.year &&
+            element.date.month == date.month &&
+            element.date.day == date.day,
+      );
+    } catch (e) {
+      return null;
+    }
   }
 
   @override
