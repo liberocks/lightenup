@@ -67,7 +67,7 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
 
             await Future.delayed(const Duration(milliseconds: 500));
 
-            context.router.pop();
+            context.router.popForced();
           },
         ),
       );
@@ -79,7 +79,7 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
       return IconButton(
         icon: const Icon(Icons.arrow_back),
         onPressed: () {
-          context.router.pop();
+          context.router.popForced();
         },
       );
     } else {

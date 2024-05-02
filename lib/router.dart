@@ -47,6 +47,18 @@ class AppRouter extends _$AppRouter {
           path: RouteConstants.patientSchedule,
           page: PatientScheduleRoute.page,
         ),
+        SlideRoute(
+          path: RouteConstants.patientAssignmentList,
+          page: PatientAssignmentListRoute.page,
+        ),
+        SlideRoute(
+          path: RouteConstants.patientAssignmentDetail,
+          page: PatientAssignmentDetailRoute.page,
+        ),
+        SlideRoute(
+          path: RouteConstants.patientAssignmentWorksheet,
+          page: PatientAssignmentWorksheetRoute.page,
+        ),
 
         // Doctor screens
         SlideRoute(

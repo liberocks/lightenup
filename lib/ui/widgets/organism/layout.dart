@@ -16,14 +16,11 @@ class Layout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      child: Material(
-        child: Scaffold(
-          appBar: appBar,
-          bottomNavigationBar: bottomNavigationBar,
-          body: child,
-        ),
+    return Material(
+      child: Scaffold(
+        appBar: appBar,
+        bottomNavigationBar: bottomNavigationBar,
+        body: child,
       ),
     );
   }
