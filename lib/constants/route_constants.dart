@@ -5,6 +5,10 @@ class RouteConstants {
   static const String patientProfile = '/patient-profile';
   static const String patientSchedule = '/patient-schedule';
   static const String patientMoodTracker = '/patient-mood-tracker';
+  static const String patientAssignmentList = '/patient-assignment-list';
+  static const String patientAssignmentDetail = '/patient-assignment-detail';
+  static const String patientAssignmentWorksheet =
+      '/patient-assignment-worksheet';
 
   // doctor
   static const String doctor = '/doctor';

@@ -39,6 +39,24 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const DoctorMainScreen(),
       );
     },
+    PatientAssignmentDetailRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PatientAssignmentDetailScreen(),
+      );
+    },
+    PatientAssignmentListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PatientAssignmentListScreen(),
+      );
+    },
+    PatientAssignmentWorksheetRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PatientAssignmentWorksheetScreen(),
+      );
+    },
     PatientHomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -124,6 +142,48 @@ class DoctorMainRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'DoctorMainRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PatientAssignmentDetailScreen]
+class PatientAssignmentDetailRoute extends PageRouteInfo<void> {
+  const PatientAssignmentDetailRoute({List<PageRouteInfo>? children})
+      : super(
+          PatientAssignmentDetailRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PatientAssignmentDetailRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PatientAssignmentListScreen]
+class PatientAssignmentListRoute extends PageRouteInfo<void> {
+  const PatientAssignmentListRoute({List<PageRouteInfo>? children})
+      : super(
+          PatientAssignmentListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PatientAssignmentListRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PatientAssignmentWorksheetScreen]
+class PatientAssignmentWorksheetRoute extends PageRouteInfo<void> {
+  const PatientAssignmentWorksheetRoute({List<PageRouteInfo>? children})
+      : super(
+          PatientAssignmentWorksheetRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PatientAssignmentWorksheetRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
