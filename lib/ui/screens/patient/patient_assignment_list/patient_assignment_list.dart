@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lightenup/constants/constants.dart';
 import 'package:lightenup/cubit/cubit.dart';
+import 'package:lightenup/router.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
 
 @RoutePage()
@@ -56,7 +57,13 @@ class PatientAssignmentListScreen extends StatelessWidget {
                         title: assignment.title,
                         type: assignment.type,
                         date: assignment.createdAt,
-                        onTap: () {},
+                        onTap: () {
+                          context.router.push(
+                            PatientAssignmentDetailRoute(
+                              assignment: assignment,
+                            ),
+                          );
+                        },
                       );
                     }),
                     Visibility(

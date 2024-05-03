@@ -59,8 +59,8 @@ class PatientHomeScreen extends StatelessWidget {
                             ],
                           ),
                           borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(32),
-                            bottomRight: Radius.circular(32),
+                            bottomLeft: Radius.circular(18),
+                            bottomRight: Radius.circular(18),
                           ),
                         ),
                         child: Container(

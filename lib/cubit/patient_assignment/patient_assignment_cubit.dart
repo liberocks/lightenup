@@ -19,6 +19,8 @@ class PatientAssignmentCubit extends HydratedCubit<PatientAssignmentState> {
             subtitle:
                 '“Thoughts are like a running dialogue in your brain. They come and go fast and we rarely have enough time to question them."',
             author: 'Karina Saraswati',
+            notes:
+                'Please complete this assignment before our upcoming session.',
             type: 'Anxiety worksheet',
             preparations: [
               'Spend a moment thinking about each of the following questions.',
@@ -89,11 +91,13 @@ class PatientAssignmentCubit extends HydratedCubit<PatientAssignmentState> {
             createdAt: DateTime.now(),
           ),
           PatientAssignment(
-            id: 1,
+            id: 2,
             title: 'Facts or Opinion',
             subtitle:
                 '“Thoughts are like a running dialogue in your brain. They come and go fast and we rarely have enough time to question them."',
             author: 'Karina Saraswati',
+            notes:
+                'Please complete this assignment before our upcoming session.',
             type: 'Anxiety worksheet',
             preparations: [
               'Spend a moment thinking about each of the following questions.',

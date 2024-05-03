@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:lightenup/constants/constants.dart';
+import 'package:lightenup/data/model/model.dart';
 import 'package:lightenup/ui/screens/screens.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
 
