@@ -10,33 +10,8 @@ import 'package:lightenup/router.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
 
 @RoutePage()
-class PatientHomeScreen extends StatefulWidget {
+class PatientHomeScreen extends StatelessWidget {
   const PatientHomeScreen({super.key});
-
-  @override
-  State<PatientHomeScreen> createState() => _PatientHomeScreenState();
-}
-
-class _PatientHomeScreenState extends State<PatientHomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.manual,
-      overlays: [
-        SystemUiOverlay.bottom,
-      ],
-    );
-  }
-
-  @override
-  void dispose() {
-    SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.manual,
-      overlays: SystemUiOverlay.values,
-    );
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +26,12 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                 .getMoodByDate(DateTime.now());
 
             return Layout(
+              onInit: () {
+                SystemChrome.setEnabledSystemUIMode(
+                  SystemUiMode.manual,
+                  overlays: [SystemUiOverlay.bottom],
+                );
+              },
               appBar: AppBar(
                 titleSpacing: 0,
                 automaticallyImplyLeading: false,
@@ -89,7 +70,8 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                 leading: Container(),
                 leadingWidth: 0,
                 systemOverlayStyle: const SystemUiOverlayStyle(
-                    statusBarColor: Colors.transparent),
+                  statusBarColor: Colors.transparent,
+                ),
               ),
               child: Container(
                 color: Colors.white,

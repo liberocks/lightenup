@@ -31,7 +31,6 @@ class PatientMainScreen extends StatelessWidget {
                       color: Colors.white,
                       alignment: Alignment.bottomCenter,
                       height: 65,
-                      padding: const EdgeInsets.only(top: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
