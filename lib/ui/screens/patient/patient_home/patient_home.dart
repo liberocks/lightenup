@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:lightenup/constants/constants.dart';
@@ -9,8 +10,33 @@ import 'package:lightenup/router.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
 
 @RoutePage()
-class PatientHomeScreen extends StatelessWidget {
+class PatientHomeScreen extends StatefulWidget {
   const PatientHomeScreen({super.key});
+
+  @override
+  State<PatientHomeScreen> createState() => _PatientHomeScreenState();
+}
+
+class _PatientHomeScreenState extends State<PatientHomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: [
+        SystemUiOverlay.bottom,
+      ],
+    );
+  }
+
+  @override
+  void dispose() {
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: SystemUiOverlay.values,
+    );
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +88,8 @@ class PatientHomeScreen extends StatelessWidget {
                 ),
                 leading: Container(),
                 leadingWidth: 0,
+                systemOverlayStyle: const SystemUiOverlayStyle(
+                    statusBarColor: Colors.transparent),
               ),
               child: Container(
                 color: Colors.white,
@@ -178,7 +206,10 @@ class PatientHomeScreen extends StatelessWidget {
                           subtitle:
                               'Make sure you finished the given worksheet from your previous session.',
                           icon: Icons.person_outline,
-                          onTap: () {},
+                          onTap: () {
+                            AutoRouter.of(context)
+                                .push(const PatientAssignmentListRoute());
+                          },
                         ),
                         const TodoCard(
                           title: 'Do more activities',

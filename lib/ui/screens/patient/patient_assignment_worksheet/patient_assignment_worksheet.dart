@@ -15,8 +15,13 @@ class PatientAssignmentWorksheetScreen extends StatelessWidget {
         return Layout(
           appBar: AppBar(
             title: const Text('Worksheet'),
-            leading: Container(),
-            leadingWidth: 0,
+            centerTitle: false,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                context.router.pop();
+              },
+            ),
           ),
           child: Container(
             color: Colors.white,

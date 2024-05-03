@@ -15,6 +15,7 @@ class PatientAssignment with _$PatientAssignment {
     required List<String> preparations,
     required int duration, // in minutes
     required List<PatientWorksheet> worksheets,
+    required int totalPages,
     required DateTime createdAt,
     @Default(AssignmentStatus.unfinished) AssignmentStatus status,
     DateTime? finishedAt,

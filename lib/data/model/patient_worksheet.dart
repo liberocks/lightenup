@@ -6,6 +6,7 @@ part 'patient_worksheet.g.dart';
 @freezed
 class PatientWorksheet with _$PatientWorksheet {
   factory PatientWorksheet({
+    @Default(0) int page,
     @Default('') String name,
     @Default('') String title,
     @Default('') String subtitle,
