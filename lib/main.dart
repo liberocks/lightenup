@@ -35,10 +35,5 @@ void main() async {
     ),
   );
 
-  SystemChrome.setEnabledSystemUIMode(
-    SystemUiMode.manual,
-    overlays: [SystemUiOverlay.bottom],
-  );
-
   runApp(const MyApp());
 }
