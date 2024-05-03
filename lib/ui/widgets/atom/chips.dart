@@ -35,7 +35,7 @@ class Chips extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: selected ? HexColor('#6750A4') : backgroundColor,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
           side: BorderSide(
@@ -43,14 +43,15 @@ class Chips extends StatelessWidget {
             width: 1,
           ),
         ),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         elevation: 0,
       ),
       onPressed: onPressed,
       child: Text(
         text,
         style: TextStyle(
-          fontSize: 14,
           height: 20 / 14,
+          fontSize: 14,
           fontWeight: FontWeight.w500,
           fontFamily: 'Roboto',
           letterSpacing: 0.1,

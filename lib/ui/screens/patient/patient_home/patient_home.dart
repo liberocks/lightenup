@@ -122,7 +122,8 @@ class PatientHomeScreen extends StatelessWidget {
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   color: HexColor(
-                                    patientMood?.backgroundHex ?? '#F0F0F0',
+                                    patientMood?.backgroundHexStart ??
+                                        '#F0F0F0',
                                   ),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
@@ -165,14 +166,27 @@ class PatientHomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: double.infinity,
-                          child: PrimaryButton(
-                            text: 'Check in now',
-                            onPressed: () {
-                              AutoRouter.of(context)
-                                  .push(const PatientMoodTrackerRoute());
-                            },
+                        Visibility(
+                          visible: patientMood == null,
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: PrimaryButton(
+                              text: 'Check in now',
+                              onPressed: () {
+                                AutoRouter.of(context)
+                                    .push(const PatientMoodTrackerRoute());
+                              },
+                            ),
+                          ),
+                        ),
+                        Visibility(
+                          visible: patientMood != null,
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: SecondaryButton(
+                              text: 'View mood history',
+                              onPressed: () {},
+                            ),
                           ),
                         ),
                         const SizedBox(height: 16),

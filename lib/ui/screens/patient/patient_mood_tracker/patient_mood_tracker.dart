@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,7 +62,8 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
                     date: DateTime.now(),
                     emoji: selectedMood!.emoji,
                     colorHex: selectedMood!.colorHex,
-                    backgroundHex: selectedMood!.backgroundHex,
+                    backgroundHexStart: selectedMood!.backgroundHexStart,
+                    backgroundHexEnd: selectedMood!.backgroundHexEnd,
                     moodText: selectedMood!.moodText,
                   ),
                 );
@@ -114,7 +117,8 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
                 id: -1,
                 emoji: '🙂',
                 colorHex: '#004895',
-                backgroundHex: '#BAF0FF',
+                backgroundHexStart: '#80DEF8',
+                backgroundHexEnd: '#80F8CA',
                 mood: 'happy',
                 moodText: 'Happy!',
                 notes: '',
@@ -124,8 +128,9 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
               PatientMood(
                 id: -1,
                 emoji: '😊',
-                colorHex: '#3E0095',
-                backgroundHex: '#C2BAFF',
+                colorHex: '#FFFFFF',
+                backgroundHexStart: '#B280F8',
+                backgroundHexEnd: '#D680F8',
                 mood: 'surprised',
                 moodText: 'Surprised',
                 notes: '',
@@ -135,8 +140,9 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
               PatientMood(
                 id: -1,
                 emoji: '😐',
-                colorHex: '#4B4B4B',
-                backgroundHex: '#E9E9E9',
+                colorHex: '#1B1B1B',
+                backgroundHexStart: '#ECECEC',
+                backgroundHexEnd: '#D1D1D1',
                 mood: 'just_ok',
                 moodText: 'Just OK',
                 notes: '',
@@ -147,7 +153,8 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
                 id: -1,
                 emoji: '😭',
                 colorHex: '#F6F6F6',
-                backgroundHex: '#808080',
+                backgroundHexStart: '#3A3A3A',
+                backgroundHexEnd: '#252525',
                 mood: 'sad',
                 moodText: 'Sad',
                 notes: '',
@@ -157,8 +164,9 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
               PatientMood(
                 id: -1,
                 emoji: '🙁',
-                colorHex: '#606C00',
-                backgroundHex: '#FFDEBA',
+                colorHex: '#954D00',
+                backgroundHexStart: '#F8E280',
+                backgroundHexEnd: '#F8BE80',
                 mood: 'fearful',
                 moodText: 'Fearful',
                 notes: '',
@@ -168,8 +176,9 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
               PatientMood(
                 id: -1,
                 emoji: '😡',
-                colorHex: '#6C1700',
-                backgroundHex: '#FFBAC0',
+                colorHex: '#FFFFFF',
+                backgroundHexStart: '#F8808A',
+                backgroundHexEnd: '#F89A80',
                 mood: 'angry',
                 moodText: 'Angry',
                 notes: '',
@@ -183,7 +192,8 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
                     text: mood.moodText,
                     emoji: mood.emoji,
                     color: HexColor(mood.colorHex),
-                    background: HexColor(mood.backgroundHex),
+                    backgroundStart: HexColor(mood.backgroundHexStart),
+                    backgroundEnd: HexColor(mood.backgroundHexEnd),
                     selected: isMoodSelected(mood),
                     onTap: () {
                       setMood(mood);
@@ -208,8 +218,8 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                HexColor('#80DEF8'),
-                HexColor('#80F8CA'),
+                HexColor(selectedMood?.backgroundHexStart ?? '#FFFFFF'),
+                HexColor(selectedMood?.backgroundHexEnd ?? '#FFFFFF'),
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -225,7 +235,7 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
             children: [
               Headline(
                 text: "You're feeling...",
-                color: HexColor('#004895'),
+                color: HexColor(selectedMood?.colorHex ?? '#000000'),
                 size: SizeOfThing.small,
               ),
               const SizedBox(height: 8),
@@ -253,9 +263,27 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Label(
-                text: 'What makes you ${selectedMood?.mood} today?',
-                size: SizeOfThing.large,
+              Visibility(
+                visible: !['just_ok', 'angry'].contains(selectedMood?.mood),
+                child: Label(
+                  text:
+                      'What makes you ${(selectedMood?.mood ?? '').replaceAll('_', ' ')} today?',
+                  size: SizeOfThing.large,
+                ),
+              ),
+              Visibility(
+                visible: selectedMood?.mood == 'just_ok',
+                child: const Label(
+                  text: 'What is the reason for today’s feeling?',
+                  size: SizeOfThing.large,
+                ),
+              ),
+              Visibility(
+                visible: selectedMood?.mood == 'angry',
+                child: const Label(
+                  text: 'What is the reason feeling like it today?',
+                  size: SizeOfThing.large,
+                ),
               ),
               const SizedBox(height: 8),
               Wrap(
@@ -305,14 +333,17 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
                 },
                 controller: notesController,
                 decoration: InputDecoration(
-                  hintText: "I'm feeling better than usual...",
-                  fillColor: HexColor('#E6E0E9'),
+                  hintText: "Express your feelings...",
+                  fillColor: HexColor('#FFFFFF'),
                   filled: true,
-                  border: UnderlineInputBorder(
-                    borderSide: BorderSide(color: HexColor('#49454F')),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: HexColor('#79747E')),
                   ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: HexColor('#6750A4')),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: ThemeColor.primary500, width: 2),
                   ),
                 ),
                 maxLines: null,
