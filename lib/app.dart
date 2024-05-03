@@ -48,6 +48,9 @@ class _MyAppState extends State<MyApp> {
         BlocProvider<PatientMoodTrackerCubit>(
           create: (BuildContext context) => PatientMoodTrackerCubit(),
         ),
+        BlocProvider<PatientAssignmentCubit>(
+          create: (BuildContext context) => PatientAssignmentCubit(),
+        ),
       ],
       child: Directionality(
         textDirection: TextDirection.ltr,

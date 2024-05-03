@@ -12,6 +12,7 @@ class PatientAssignment with _$PatientAssignment {
     required String title,
     required String subtitle,
     required String author,
+    required String type,
     required List<String> preparations,
     required int duration, // in minutes
     required List<PatientWorksheet> worksheets,

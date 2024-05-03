@@ -10,18 +10,21 @@ class TodoCard extends StatelessWidget {
     this.onTap,
   });
 
+  /// The title of the to-do card
   final String title;
 
+  /// The subtitle of the to-do card
   final String subtitle;
 
+  /// The icon of the to-do card
   final IconData icon;
 
+  /// The function to be called when the card is tapped
   final Function? onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      enableFeedback: onTap != null,
       onTap: onTap as void Function()?,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -40,10 +43,7 @@ class TodoCard extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(
-                  icon,
-                  color: Colors.grey[800],
-                ),
+                Icon(icon, color: Colors.grey[800]),
                 const SizedBox(width: 16),
                 Expanded(
                   child: Column(
