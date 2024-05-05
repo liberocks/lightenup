@@ -1,14 +1,24 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:lightenup/constants/constants.dart';
 import 'package:lightenup/cubit/cubit.dart';
 import 'package:lightenup/router.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
 
 @RoutePage()
-class PatientAssignmentListScreen extends StatelessWidget {
+class PatientAssignmentListScreen extends StatefulWidget {
   const PatientAssignmentListScreen({super.key});
+
+  @override
+  State<PatientAssignmentListScreen> createState() =>
+      _PatientAssignmentListScreenState();
+}
+
+class _PatientAssignmentListScreenState
+    extends State<PatientAssignmentListScreen> {
+  bool isExpanded = true;
 
   @override
   Widget build(BuildContext context) {
@@ -75,28 +85,38 @@ class PatientAssignmentListScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Heading(text: 'Completed'),
-                        Icon(Icons.arrow_drop_down),
-                      ],
-                    ),
-                    ...completedAssignments.map((assignment) {
-                      return AssignmentCard(
-                        title: assignment.title,
-                        type: assignment.subtitle,
-                        date: assignment.createdAt,
-                        onTap: () {},
-                      );
-                    }),
-                    Visibility(
-                      visible: completedAssignments.isEmpty,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: const EmptyCard(
-                          'You haven’t completed any assignment yet.',
+                    Theme(
+                      data: ThemeData()
+                          .copyWith(dividerColor: Colors.transparent),
+                      child: ExpansionTile(
+                        initiallyExpanded: isExpanded,
+                        tilePadding: EdgeInsets.zero,
+                        title: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Heading(text: 'Completed'),
+                          ],
                         ),
+                        children: [
+                          Visibility(
+                            visible: completedAssignments.isEmpty,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(vertical: 8),
+                              child: const EmptyCard(
+                                'You haven’t completed any assignment yet.',
+                              ),
+                            ),
+                          ),
+                          ...completedAssignments.map((assignment) {
+                            return AssignmentCard(
+                              color: HexColor('F8F8F8'),
+                              title: assignment.title,
+                              type: assignment.subtitle,
+                              date: assignment.createdAt,
+                              onTap: () {},
+                            );
+                          }),
+                        ],
                       ),
                     ),
                   ],

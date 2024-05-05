@@ -64,6 +64,8 @@ class PatientAssignmentCubit extends HydratedCubit<PatientAssignmentState> {
               PatientWorksheet(
                 page: 2,
                 title: 'Am I looking at all the evidence?',
+                subtitle:
+                    "This section is to make sure that you are sure with the evidence, and not just what supports your thought.",
                 hint: 'Tell what you have found...',
               ),
               PatientWorksheet(
@@ -74,6 +76,8 @@ class PatientAssignmentCubit extends HydratedCubit<PatientAssignmentState> {
               PatientWorksheet(
                 page: 3,
                 title: 'Am I having this thought our of habit?',
+                subtitle:
+                    "You can tell what thoughts or which facts that support it.",
                 hint: 'Tell what you have found...',
               ),
               PatientWorksheet(
@@ -141,6 +145,8 @@ class PatientAssignmentCubit extends HydratedCubit<PatientAssignmentState> {
               PatientWorksheet(
                 page: 2,
                 title: 'Am I looking at all the evidence?',
+                subtitle:
+                    "This section is to make sure that you are sure with the evidence, and not just what supports your thought.",
                 hint: 'Tell what you have found...',
               ),
               PatientWorksheet(
@@ -151,6 +157,8 @@ class PatientAssignmentCubit extends HydratedCubit<PatientAssignmentState> {
               PatientWorksheet(
                 page: 3,
                 title: 'Am I having this thought our of habit?',
+                subtitle:
+                    "You can tell what thoughts or which facts that support it.",
                 hint: 'Tell what you have found...',
               ),
               PatientWorksheet(
@@ -215,7 +223,7 @@ class PatientAssignmentCubit extends HydratedCubit<PatientAssignmentState> {
   }
 
   void setCompletedAssignments(int assignmentId) {
-    var newAssignments = state.assignments;
+    var newAssignments = [...state.assignments];
     var index =
         newAssignments.indexWhere((element) => element.id == assignmentId);
     newAssignments[index] =
@@ -225,8 +233,7 @@ class PatientAssignmentCubit extends HydratedCubit<PatientAssignmentState> {
   }
 
   void addAssignmentAnswer(PatientAssignmentAnswer assignmentAnswer) {
-    var assignmentAnswers = state.assignmentAnswers;
-    assignmentAnswers.add(assignmentAnswer);
+    final assignmentAnswers = [...state.assignmentAnswers, assignmentAnswer];
 
     emit(state.copyWith(assignmentAnswers: assignmentAnswers));
   }

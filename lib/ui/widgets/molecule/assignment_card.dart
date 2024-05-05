@@ -7,6 +7,7 @@ class AssignmentCard extends StatelessWidget {
     required this.title,
     required this.type,
     required this.date,
+    this.color,
     super.key,
     this.onTap,
   });
@@ -23,6 +24,8 @@ class AssignmentCard extends StatelessWidget {
   /// The function to be called when the card is tapped
   final Function? onTap;
 
+  final Color? color;
+
   @override
   Widget build(BuildContext context) {
     final dateFormatter = DateFormat('dd MMM');
@@ -38,7 +41,7 @@ class AssignmentCard extends StatelessWidget {
           ),
           width: double.infinity,
           decoration: BoxDecoration(
-            color: HexColor('#FEF7FF'),
+            color: color ?? HexColor('#FEF7FF'),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Container(
