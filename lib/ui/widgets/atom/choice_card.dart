@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:lightenup/constants/constants.dart';
-import 'package:lightenup/ui/widgets/atom/label.dart';
+import 'package:lightenup/ui/widgets/widgets.dart';
 
 class ChoiceCard extends StatelessWidget {
   const ChoiceCard({
     required this.boxSize,
     required this.text,
-    required this.icon,
+    required this.asset,
     required this.onTap,
-    this.color = const Color(0xFF00ACC1),
+    this.gradient,
     super.key,
   });
 
@@ -16,9 +17,9 @@ class ChoiceCard extends StatelessWidget {
 
   final String text;
 
-  final Color color;
+  final Gradient? gradient;
 
-  final IconData icon;
+  final String asset;
 
   final void Function()? onTap;
 
@@ -28,36 +29,38 @@ class ChoiceCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(
-            color: color,
-            width: 2,
-          ),
           borderRadius: BorderRadius.circular(8),
         ),
         width: boxSize,
-        height: boxSize,
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(
-                icon,
-                size: 32,
-                color: color,
+        height: 1.2 * boxSize,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(8),
+                topRight: Radius.circular(8),
               ),
-              Expanded(
-                child: Container(
-                  alignment: Alignment.bottomLeft,
-                  child: Label(
-                    text: text,
-                    size: SizeOfThing.large,
-                    color: Colors.grey[700],
-                  ),
+              child: Image.asset(asset),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: gradient == null ? Colors.grey[100] : null,
+                gradient: gradient,
+                borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.circular(8),
+                  bottomLeft: Radius.circular(8),
                 ),
               ),
-            ],
-          ),
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              alignment: Alignment.center,
+              child: Heading(
+                text: text,
+                size: SizeOfThing.medium,
+                color: HexColor('#240046'),
+              ),
+            ),
+          ],
         ),
       ),
     );
