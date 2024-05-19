@@ -8,22 +8,26 @@ import 'package:lightenup/constants/constants.dart';
 import 'package:lightenup/cubit/cubit.dart';
 import 'package:lightenup/data/model/model.dart';
 import 'package:lightenup/router.dart';
-import 'package:lightenup/ui/screens/patient/patient_assignment_worksheet/widgets/widgets.dart';
+import 'package:lightenup/ui/screens/patient/patient_assignment_socratic_questions_worksheet/widgets/widgets.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
+import 'package:toastification/toastification.dart';
 
 @RoutePage()
-class PatientAssignmentWorksheetScreen extends StatefulWidget {
-  const PatientAssignmentWorksheetScreen({required this.assignment, super.key});
+class PatientAssignmentSocratesQuestionsScreen extends StatefulWidget {
+  const PatientAssignmentSocratesQuestionsScreen({
+    required this.assignment,
+    super.key,
+  });
 
   final PatientAssignment assignment;
 
   @override
-  State<PatientAssignmentWorksheetScreen> createState() =>
-      _PatientAssignmentWorksheetScreenState();
+  State<PatientAssignmentSocratesQuestionsScreen> createState() =>
+      _PatientAssignmentSocratesQuestionsScreenState();
 }
 
-class _PatientAssignmentWorksheetScreenState
-    extends State<PatientAssignmentWorksheetScreen> {
+class _PatientAssignmentSocratesQuestionsScreenState
+    extends State<PatientAssignmentSocratesQuestionsScreen> {
   late PatientAssignmentAnswer answer;
   int page = 0;
   bool isLoading = false;
@@ -367,6 +371,34 @@ class _PatientAssignmentWorksheetScreenState
                   .setCompletedAssignments(answer.assignmentId);
               context.router
                   .popUntilRouteWithName(PatientAssignmentListRoute.name);
+
+              toastification.show(
+                backgroundColor: HexColor('#E0E9E8'),
+                showProgressBar: false,
+                icon: const Icon(
+                  size: 0,
+                  Icons.check_circle,
+                  color: Colors.white,
+                ),
+                borderRadius: BorderRadius.circular(4),
+                margin: const EdgeInsets.only(
+                  left: 32,
+                  right: 32,
+                  top: 16,
+                  bottom: 16,
+                ),
+                padding: const EdgeInsets.all(0),
+                context: context, // optional if you use ToastificationWrapper
+                title: const Text(
+                  'Assignment submitted!',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                autoCloseDuration: const Duration(seconds: 5),
+                alignment: Alignment.bottomCenter,
+              );
             });
           },
         ),

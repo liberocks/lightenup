@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:lightenup/constants/constants.dart';
 import 'package:lightenup/data/model/model.dart';
@@ -24,8 +25,19 @@ class PatientAssignmentDetailScreen extends StatelessWidget {
         child: PrimaryButton(
           text: 'Start assigments',
           onPressed: () {
-            AutoRouter.of(context)
-                .push(PatientAssignmentWorksheetRoute(assignment: assignment));
+            if (assignment.type == AssignmentType.Socratic_Questions) {
+              AutoRouter.of(context).push(
+                PatientAssignmentSocratesQuestionsRoute(
+                  assignment: assignment,
+                ),
+              );
+            } else if (assignment.type == AssignmentType.Facts_or_Opinion) {
+              AutoRouter.of(context).push(
+                PatientAssignmentFactOrOpinionRoute(
+                  assignment: assignment,
+                ),
+              );
+            }
           },
         ),
       ),
@@ -105,17 +117,18 @@ class PatientAssignmentDetailScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const SizedBox(height: 16),
                           Display(
-                            text: assignment.title,
+                            text: assignment.type
+                                .toString()
+                                .replaceAll('AssignmentType.', '')
+                                .replaceAll('_', ' '),
                             size: SizeOfThing.small,
                             color: Colors.white,
                           ),
                           const SizedBox(height: 16),
-                          Body(
-                            text: assignment.subtitle,
-                            size: SizeOfThing.small,
-                            color: Colors.white,
+                          HtmlWidget(
+                            assignment.subtitle,
+                            textStyle: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(height: 20),
                         ],
@@ -157,13 +170,6 @@ class PatientAssignmentDetailScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  Heading(
-                    text: 'Notes from ${assignment.author.split(' ')[0]}',
-                    size: SizeOfThing.small,
-                  ),
-                  const SizedBox(height: 8),
-                  Body(text: assignment.notes ?? '', size: SizeOfThing.large),
-                  const SizedBox(height: 16),
                   const Heading(
                     text: 'What do you need to prepare?',
                     size: SizeOfThing.small,
@@ -180,9 +186,9 @@ class PatientAssignmentDetailScreen extends StatelessWidget {
                             ),
                             child: Row(
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.check_circle_outline,
-                                  color: Colors.green,
+                                  color: HexColor('#21DB33'),
                                 ),
                                 const SizedBox(width: 12),
                                 Expanded(
@@ -198,6 +204,23 @@ class PatientAssignmentDetailScreen extends StatelessWidget {
                         ],
                       )
                       .expand((i) => i),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      const Heading(
+                        text: 'Notes from ',
+                        size: SizeOfThing.small,
+                      ),
+                      Heading(
+                        text:
+                            '${assignment.authorHonorific}${assignment.authorHonorific != null ? ' ' : ''}${assignment.author.split(' ')[0]}',
+                        size: SizeOfThing.small,
+                        color: HexColor('#6750A4'),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Body(text: assignment.notes ?? '', size: SizeOfThing.large),
                   const SizedBox(height: 16),
                   const Heading(
                     text: 'Estimated time',

@@ -28,7 +28,8 @@ class ChoiceScreen extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.15),
+                  top: MediaQuery.of(context).size.height * 0.15,
+                ),
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: Image.asset('assets/images/logo.png'),
               ),

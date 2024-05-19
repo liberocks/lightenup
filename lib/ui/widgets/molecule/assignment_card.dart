@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
+import 'package:lightenup/constants/assignment_type.dart';
 
 class AssignmentCard extends StatelessWidget {
   const AssignmentCard({
@@ -16,7 +17,7 @@ class AssignmentCard extends StatelessWidget {
   final String title;
 
   /// The subtitle of the assignment
-  final String type;
+  final AssignmentType type;
 
   /// The date of the assignment
   final DateTime date;
@@ -59,7 +60,10 @@ class AssignmentCard extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Text(
-                              title,
+                              type
+                                  .toString()
+                                  .replaceAll('AssignmentType.', '')
+                                  .replaceAll('_', ' '),
                               style: TextStyle(
                                 fontSize: 16,
                                 letterSpacing: 0.5,
@@ -73,7 +77,7 @@ class AssignmentCard extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        type,
+                        title,
                         style: TextStyle(
                           fontSize: 14,
                           letterSpacing: 0.25,

@@ -49,17 +49,28 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    PatientAssignmentFactOrOpinionRoute.name: (routeData) {
+      final args = routeData.argsAs<PatientAssignmentFactOrOpinionRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PatientAssignmentFactOrOpinionScreen(
+          assignment: args.assignment,
+          key: args.key,
+        ),
+      );
+    },
     PatientAssignmentListRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const PatientAssignmentListScreen(),
       );
     },
-    PatientAssignmentWorksheetRoute.name: (routeData) {
-      final args = routeData.argsAs<PatientAssignmentWorksheetRouteArgs>();
+    PatientAssignmentSocratesQuestionsRoute.name: (routeData) {
+      final args =
+          routeData.argsAs<PatientAssignmentSocratesQuestionsRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: PatientAssignmentWorksheetScreen(
+        child: PatientAssignmentSocratesQuestionsScreen(
           assignment: args.assignment,
           key: args.key,
         ),
@@ -194,6 +205,45 @@ class PatientAssignmentDetailRouteArgs {
 }
 
 /// generated route for
+/// [PatientAssignmentFactOrOpinionScreen]
+class PatientAssignmentFactOrOpinionRoute
+    extends PageRouteInfo<PatientAssignmentFactOrOpinionRouteArgs> {
+  PatientAssignmentFactOrOpinionRoute({
+    required PatientAssignment assignment,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          PatientAssignmentFactOrOpinionRoute.name,
+          args: PatientAssignmentFactOrOpinionRouteArgs(
+            assignment: assignment,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'PatientAssignmentFactOrOpinionRoute';
+
+  static const PageInfo<PatientAssignmentFactOrOpinionRouteArgs> page =
+      PageInfo<PatientAssignmentFactOrOpinionRouteArgs>(name);
+}
+
+class PatientAssignmentFactOrOpinionRouteArgs {
+  const PatientAssignmentFactOrOpinionRouteArgs({
+    required this.assignment,
+    this.key,
+  });
+
+  final PatientAssignment assignment;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'PatientAssignmentFactOrOpinionRouteArgs{assignment: $assignment, key: $key}';
+  }
+}
+
+/// generated route for
 /// [PatientAssignmentListScreen]
 class PatientAssignmentListRoute extends PageRouteInfo<void> {
   const PatientAssignmentListRoute({List<PageRouteInfo>? children})
@@ -208,30 +258,30 @@ class PatientAssignmentListRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [PatientAssignmentWorksheetScreen]
-class PatientAssignmentWorksheetRoute
-    extends PageRouteInfo<PatientAssignmentWorksheetRouteArgs> {
-  PatientAssignmentWorksheetRoute({
+/// [PatientAssignmentSocratesQuestionsScreen]
+class PatientAssignmentSocratesQuestionsRoute
+    extends PageRouteInfo<PatientAssignmentSocratesQuestionsRouteArgs> {
+  PatientAssignmentSocratesQuestionsRoute({
     required PatientAssignment assignment,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
-          PatientAssignmentWorksheetRoute.name,
-          args: PatientAssignmentWorksheetRouteArgs(
+          PatientAssignmentSocratesQuestionsRoute.name,
+          args: PatientAssignmentSocratesQuestionsRouteArgs(
             assignment: assignment,
             key: key,
           ),
           initialChildren: children,
         );
 
-  static const String name = 'PatientAssignmentWorksheetRoute';
+  static const String name = 'PatientAssignmentSocratesQuestionsRoute';
 
-  static const PageInfo<PatientAssignmentWorksheetRouteArgs> page =
-      PageInfo<PatientAssignmentWorksheetRouteArgs>(name);
+  static const PageInfo<PatientAssignmentSocratesQuestionsRouteArgs> page =
+      PageInfo<PatientAssignmentSocratesQuestionsRouteArgs>(name);
 }
 
-class PatientAssignmentWorksheetRouteArgs {
-  const PatientAssignmentWorksheetRouteArgs({
+class PatientAssignmentSocratesQuestionsRouteArgs {
+  const PatientAssignmentSocratesQuestionsRouteArgs({
     required this.assignment,
     this.key,
   });
@@ -242,7 +292,7 @@ class PatientAssignmentWorksheetRouteArgs {
 
   @override
   String toString() {
-    return 'PatientAssignmentWorksheetRouteArgs{assignment: $assignment, key: $key}';
+    return 'PatientAssignmentSocratesQuestionsRouteArgs{assignment: $assignment, key: $key}';
   }
 }
 

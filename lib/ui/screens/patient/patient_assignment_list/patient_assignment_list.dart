@@ -111,7 +111,7 @@ class _PatientAssignmentListScreenState
                             return AssignmentCard(
                               color: HexColor('F8F8F8'),
                               title: assignment.title,
-                              type: assignment.subtitle,
+                              type: assignment.type,
                               date: assignment.createdAt,
                               onTap: () {},
                             );

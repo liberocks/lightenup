@@ -52,6 +52,8 @@ dependencies:
   dotted_border: ^2.1.0
   intl: ^0.19.0
   collection: ^1.18.0
+  flutter_widget_from_html: ^0.15.0
+  toastification: ^2.0.0
 
 dev_dependencies:
   flutter_test:
