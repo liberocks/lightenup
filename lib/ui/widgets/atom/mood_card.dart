@@ -10,7 +10,8 @@ class MoodCard extends StatelessWidget {
     required this.emoji,
     required this.color,
     required this.onTap,
-    required this.background,
+    required this.backgroundStart,
+    required this.backgroundEnd,
     this.selected = false,
     super.key,
   });
@@ -21,7 +22,9 @@ class MoodCard extends StatelessWidget {
 
   final Color color;
 
-  final Color background;
+  final Color backgroundStart;
+
+  final Color backgroundEnd;
 
   final bool selected;
 
@@ -36,13 +39,17 @@ class MoodCard extends StatelessWidget {
         height: 120,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: background,
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [backgroundStart, backgroundEnd],
+          ),
           border: Border.all(
             color: selected
-                ? background
-                    .withRed(max(background.red - 100, 0))
-                    .withGreen(max(background.green - 100, 0))
-                    .withBlue(max(background.blue - 100, 0))
+                ? backgroundStart
+                    .withRed(max(backgroundStart.red - 100, 0))
+                    .withGreen(max(backgroundStart.green - 100, 0))
+                    .withBlue(max(backgroundStart.blue - 100, 0))
                 : Colors.transparent,
             width: 2,
           ),

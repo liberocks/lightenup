@@ -48,26 +48,21 @@ class _MyAppState extends State<MyApp> {
         BlocProvider<PatientMoodTrackerCubit>(
           create: (BuildContext context) => PatientMoodTrackerCubit(),
         ),
+        BlocProvider<PatientAssignmentCubit>(
+          create: (BuildContext context) => PatientAssignmentCubit(),
+        ),
       ],
       child: Directionality(
         textDirection: TextDirection.ltr,
-        child: Overlay(
-          initialEntries: [
-            OverlayEntry(
-              builder: (BuildContext context) {
-                return MaterialApp.router(
-                  routerConfig: router.config(),
-                  title: 'LightenUp',
-                  localizationsDelegates: const [
-                    DefaultMaterialLocalizations.delegate,
-                    DefaultCupertinoLocalizations.delegate,
-                    DefaultWidgetsLocalizations.delegate,
-                  ],
-                  debugShowCheckedModeBanner: false,
-                );
-              },
-            ),
+        child: MaterialApp.router(
+          routerConfig: router.config(),
+          title: 'LightenUp',
+          localizationsDelegates: const [
+            DefaultMaterialLocalizations.delegate,
+            DefaultCupertinoLocalizations.delegate,
+            DefaultWidgetsLocalizations.delegate,
           ],
+          debugShowCheckedModeBanner: false,
         ),
       ),
     );

@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:lightenup/constants/constants.dart';
+import 'package:lightenup/data/model/model.dart';
 import 'package:lightenup/ui/screens/screens.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
 
@@ -46,6 +48,18 @@ class AppRouter extends _$AppRouter {
         SlideRoute(
           path: RouteConstants.patientSchedule,
           page: PatientScheduleRoute.page,
+        ),
+        SlideRoute(
+          path: RouteConstants.patientAssignmentList,
+          page: PatientAssignmentListRoute.page,
+        ),
+        SlideRoute(
+          path: RouteConstants.patientAssignmentDetail,
+          page: PatientAssignmentDetailRoute.page,
+        ),
+        SlideRoute(
+          path: RouteConstants.patientAssignmentWorksheet,
+          page: PatientAssignmentWorksheetRoute.page,
         ),
 
         // Doctor screens

@@ -7,4 +7,5 @@ export 'headline.dart';
 export 'label.dart';
 export 'navigation_item.dart';
 export 'primary_button.dart';
+export 'secondary_button.dart';
 export 'slide_route.dart';

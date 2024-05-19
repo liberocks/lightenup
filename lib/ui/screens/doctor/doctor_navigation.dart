@@ -23,7 +23,7 @@ class DoctorMainScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height,
                 child: Container(
                   alignment: Alignment.center,
-                  height: 60,
+                  height: 65,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [

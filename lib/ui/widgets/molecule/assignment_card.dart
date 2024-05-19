@@ -1,29 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:intl/intl.dart';
 
-class TodoCard extends StatelessWidget {
-  const TodoCard({
+class AssignmentCard extends StatelessWidget {
+  const AssignmentCard({
     required this.title,
-    required this.subtitle,
-    required this.icon,
+    required this.type,
+    required this.date,
+    this.color,
     super.key,
     this.onTap,
   });
 
-  /// The title of the to-do card
+  /// The title of the assignment
   final String title;
 
-  /// The subtitle of the to-do card
-  final String subtitle;
+  /// The subtitle of the assignment
+  final String type;
 
-  /// The icon of the to-do card
-  final IconData icon;
+  /// The date of the assignment
+  final DateTime date;
 
   /// The function to be called when the card is tapped
   final Function? onTap;
 
+  final Color? color;
+
   @override
   Widget build(BuildContext context) {
+    final dateFormatter = DateFormat('dd MMM');
+
     return InkWell(
       onTap: onTap as void Function()?,
       child: Container(
@@ -31,20 +37,18 @@ class TodoCard extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           constraints: const BoxConstraints(
-            minHeight: 96,
+            minHeight: 72,
           ),
           width: double.infinity,
           decoration: BoxDecoration(
-            color: HexColor('#FEF7FF'),
+            color: color ?? HexColor('#FEF7FF'),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Container(
             padding: const EdgeInsets.all(16.0),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(icon, color: Colors.grey[800]),
-                const SizedBox(width: 16),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,20 +64,16 @@ class TodoCard extends StatelessWidget {
                                 fontSize: 16,
                                 letterSpacing: 0.5,
                                 height: 24 / 16,
-                                color: Colors.grey[800],
+                                color: Colors.grey[700],
                                 fontWeight: FontWeight.w500,
                                 fontFamily: 'Roboto',
                               ),
                             ),
                           ),
-                          Visibility(
-                            visible: onTap != null,
-                            child: const Icon(Icons.arrow_right),
-                          ),
                         ],
                       ),
                       Text(
-                        subtitle,
+                        type,
                         style: TextStyle(
                           fontSize: 14,
                           letterSpacing: 0.25,
@@ -83,6 +83,16 @@ class TodoCard extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Text(
+                  dateFormatter.format(date),
+                  style: TextStyle(
+                    fontSize: 14,
+                    letterSpacing: 0.25,
+                    height: 20 / 14,
+                    color: Colors.grey[700],
+                    fontFamily: 'Roboto',
                   ),
                 ),
               ],
