@@ -57,6 +57,7 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
                   PatientMood(
                     id: context.read<PatientMoodTrackerCubit>().latestId + 1,
                     mood: selectedMood!.mood,
+                    moodValue: selectedMood!.moodValue,
                     reasons: reasons,
                     notes: notesController.text,
                     date: DateTime.now(),
@@ -116,6 +117,7 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
               PatientMood(
                 id: -1,
                 emoji: '🙂',
+                moodValue: 0,
                 colorHex: '#004895',
                 backgroundHexStart: '#80DEF8',
                 backgroundHexEnd: '#80F8CA',
@@ -128,6 +130,7 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
               PatientMood(
                 id: -1,
                 emoji: '😊',
+                moodValue: 1,
                 colorHex: '#FFFFFF',
                 backgroundHexStart: '#B280F8',
                 backgroundHexEnd: '#D680F8',
@@ -140,6 +143,7 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
               PatientMood(
                 id: -1,
                 emoji: '😐',
+                moodValue: 2,
                 colorHex: '#1B1B1B',
                 backgroundHexStart: '#ECECEC',
                 backgroundHexEnd: '#D1D1D1',
@@ -152,6 +156,7 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
               PatientMood(
                 id: -1,
                 emoji: '😭',
+                moodValue: 3,
                 colorHex: '#F6F6F6',
                 backgroundHexStart: '#3A3A3A',
                 backgroundHexEnd: '#252525',
@@ -164,6 +169,7 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
               PatientMood(
                 id: -1,
                 emoji: '🙁',
+                moodValue: 4,
                 colorHex: '#954D00',
                 backgroundHexStart: '#F8E280',
                 backgroundHexEnd: '#F8BE80',
@@ -176,6 +182,7 @@ class _PatientMoodTrackerScreenState extends State<PatientMoodTrackerScreen> {
               PatientMood(
                 id: -1,
                 emoji: '😡',
+                moodValue: 5,
                 colorHex: '#FFFFFF',
                 backgroundHexStart: '#F8808A',
                 backgroundHexEnd: '#F89A80',

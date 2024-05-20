@@ -8,6 +8,7 @@ class PatientMood with _$PatientMood {
   factory PatientMood({
     required int id,
     required String mood,
+    required int moodValue,
     required String emoji,
     required String colorHex,
     required String backgroundHexStart,
