@@ -46,10 +46,6 @@ class AppRouter extends _$AppRouter {
           page: PatientProfileRoute.page,
         ),
         SlideRoute(
-          path: RouteConstants.patientSchedule,
-          page: PatientScheduleRoute.page,
-        ),
-        SlideRoute(
           path: RouteConstants.patientAssignmentList,
           page: PatientAssignmentListRoute.page,
         ),
@@ -65,11 +61,31 @@ class AppRouter extends _$AppRouter {
           path: RouteConstants.patientAssignmentFactOrOpinionWorksheet,
           page: PatientAssignmentFactOrOpinionRoute.page,
         ),
+        SlideRoute(
+          path: RouteConstants.patientMoodHistory,
+          page: PatientMoodHistoryRoute.page,
+        ),
 
         // Doctor screens
         SlideRoute(
           path: RouteConstants.doctorHome,
           page: DoctorHomeRoute.page,
+        ),
+        SlideRoute(
+          path: RouteConstants.doctorPatientDetails,
+          page: DoctorPatientDetailsRoute.page,
+        ),
+        SlideRoute(
+          path: RouteConstants.doctorNewAssigment,
+          page: DoctorNewAssignmentRoute.page,
+        ),
+        SlideRoute(
+          path: RouteConstants.doctorAssignmentSocraticQuestionsTemplate,
+          page: DoctorAssignmentSocraticQuestionsTemplateRoute.page,
+        ),
+        SlideRoute(
+          path: RouteConstants.doctorAssignmentFactOrOpinionTemplate,
+          page: DoctorAssignmentFactOrOpinionTemplateRoute.page,
         ),
       ];
 }

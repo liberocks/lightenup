@@ -3,8 +3,8 @@ class RouteConstants {
   static const String patient = '/patient';
   static const String patientHome = '/patient-home';
   static const String patientProfile = '/patient-profile';
-  static const String patientSchedule = '/patient-schedule';
   static const String patientMoodTracker = '/patient-mood-tracker';
+  static const String patientMoodHistory = '/patient-mood-history';
   static const String patientAssignmentList = '/patient-assignment-list';
   static const String patientAssignmentDetail = '/patient-assignment-detail';
   static const String patientAssignmentSocraticQuestionsWorksheet =
@@ -15,6 +15,12 @@ class RouteConstants {
   // doctor
   static const String doctor = '/doctor';
   static const String doctorHome = '/doctor-home';
+  static const String doctorPatientDetails = '/doctor-patient-details';
+  static const String doctorNewAssigment = '/doctor-new-assignment';
+  static const String doctorAssignmentSocraticQuestionsTemplate =
+      '/doctor-assignment-socratic-questions-template';
+  static const String doctorAssignmentFactOrOpinionTemplate =
+      '/doctor-assignment-fact-or-opinion-template';
 
   // common
   static const String choice = '/choice';

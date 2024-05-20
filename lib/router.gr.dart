@@ -27,6 +27,28 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ChoiceScreen(),
       );
     },
+    DoctorAssignmentFactOrOpinionTemplateRoute.name: (routeData) {
+      final args =
+          routeData.argsAs<DoctorAssignmentFactOrOpinionTemplateRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: DoctorAssignmentFactOrOpinionTemplateScreen(
+          assignment: args.assignment,
+          key: args.key,
+        ),
+      );
+    },
+    DoctorAssignmentSocraticQuestionsTemplateRoute.name: (routeData) {
+      final args = routeData
+          .argsAs<DoctorAssignmentSocraticQuestionsTemplateRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: DoctorAssignmentSocraticQuestionsTemplateScreen(
+          assignment: args.assignment,
+          key: args.key,
+        ),
+      );
+    },
     DoctorHomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -37,6 +59,26 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const DoctorMainScreen(),
+      );
+    },
+    DoctorNewAssignmentRoute.name: (routeData) {
+      final args = routeData.argsAs<DoctorNewAssignmentRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: DoctorNewAssignmentScreen(
+          assignment: args.assignment,
+          key: args.key,
+        ),
+      );
+    },
+    DoctorPatientDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<DoctorPatientDetailsRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: DoctorPatientDetailsScreen(
+          assignment: args.assignment,
+          key: args.key,
+        ),
       );
     },
     PatientAssignmentDetailRoute.name: (routeData) {
@@ -88,6 +130,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const PatientMainScreen(),
       );
     },
+    PatientMoodHistoryRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PatientMoodHistoryScreen(),
+      );
+    },
     PatientMoodTrackerRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -98,12 +146,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const PatientProfileScreen(),
-      );
-    },
-    PatientScheduleRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const PatientScheduleScreen(),
       );
     },
   };
@@ -138,6 +180,84 @@ class ChoiceRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [DoctorAssignmentFactOrOpinionTemplateScreen]
+class DoctorAssignmentFactOrOpinionTemplateRoute
+    extends PageRouteInfo<DoctorAssignmentFactOrOpinionTemplateRouteArgs> {
+  DoctorAssignmentFactOrOpinionTemplateRoute({
+    required PatientAssignment assignment,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DoctorAssignmentFactOrOpinionTemplateRoute.name,
+          args: DoctorAssignmentFactOrOpinionTemplateRouteArgs(
+            assignment: assignment,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DoctorAssignmentFactOrOpinionTemplateRoute';
+
+  static const PageInfo<DoctorAssignmentFactOrOpinionTemplateRouteArgs> page =
+      PageInfo<DoctorAssignmentFactOrOpinionTemplateRouteArgs>(name);
+}
+
+class DoctorAssignmentFactOrOpinionTemplateRouteArgs {
+  const DoctorAssignmentFactOrOpinionTemplateRouteArgs({
+    required this.assignment,
+    this.key,
+  });
+
+  final PatientAssignment assignment;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'DoctorAssignmentFactOrOpinionTemplateRouteArgs{assignment: $assignment, key: $key}';
+  }
+}
+
+/// generated route for
+/// [DoctorAssignmentSocraticQuestionsTemplateScreen]
+class DoctorAssignmentSocraticQuestionsTemplateRoute
+    extends PageRouteInfo<DoctorAssignmentSocraticQuestionsTemplateRouteArgs> {
+  DoctorAssignmentSocraticQuestionsTemplateRoute({
+    required PatientAssignment assignment,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DoctorAssignmentSocraticQuestionsTemplateRoute.name,
+          args: DoctorAssignmentSocraticQuestionsTemplateRouteArgs(
+            assignment: assignment,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DoctorAssignmentSocraticQuestionsTemplateRoute';
+
+  static const PageInfo<DoctorAssignmentSocraticQuestionsTemplateRouteArgs>
+      page = PageInfo<DoctorAssignmentSocraticQuestionsTemplateRouteArgs>(name);
+}
+
+class DoctorAssignmentSocraticQuestionsTemplateRouteArgs {
+  const DoctorAssignmentSocraticQuestionsTemplateRouteArgs({
+    required this.assignment,
+    this.key,
+  });
+
+  final PatientAssignment assignment;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'DoctorAssignmentSocraticQuestionsTemplateRouteArgs{assignment: $assignment, key: $key}';
+  }
+}
+
+/// generated route for
 /// [DoctorHomeScreen]
 class DoctorHomeRoute extends PageRouteInfo<void> {
   const DoctorHomeRoute({List<PageRouteInfo>? children})
@@ -163,6 +283,84 @@ class DoctorMainRoute extends PageRouteInfo<void> {
   static const String name = 'DoctorMainRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DoctorNewAssignmentScreen]
+class DoctorNewAssignmentRoute
+    extends PageRouteInfo<DoctorNewAssignmentRouteArgs> {
+  DoctorNewAssignmentRoute({
+    required PatientAssignment assignment,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DoctorNewAssignmentRoute.name,
+          args: DoctorNewAssignmentRouteArgs(
+            assignment: assignment,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DoctorNewAssignmentRoute';
+
+  static const PageInfo<DoctorNewAssignmentRouteArgs> page =
+      PageInfo<DoctorNewAssignmentRouteArgs>(name);
+}
+
+class DoctorNewAssignmentRouteArgs {
+  const DoctorNewAssignmentRouteArgs({
+    required this.assignment,
+    this.key,
+  });
+
+  final PatientAssignment assignment;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'DoctorNewAssignmentRouteArgs{assignment: $assignment, key: $key}';
+  }
+}
+
+/// generated route for
+/// [DoctorPatientDetailsScreen]
+class DoctorPatientDetailsRoute
+    extends PageRouteInfo<DoctorPatientDetailsRouteArgs> {
+  DoctorPatientDetailsRoute({
+    required PatientAssignment assignment,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DoctorPatientDetailsRoute.name,
+          args: DoctorPatientDetailsRouteArgs(
+            assignment: assignment,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DoctorPatientDetailsRoute';
+
+  static const PageInfo<DoctorPatientDetailsRouteArgs> page =
+      PageInfo<DoctorPatientDetailsRouteArgs>(name);
+}
+
+class DoctorPatientDetailsRouteArgs {
+  const DoctorPatientDetailsRouteArgs({
+    required this.assignment,
+    this.key,
+  });
+
+  final PatientAssignment assignment;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'DoctorPatientDetailsRouteArgs{assignment: $assignment, key: $key}';
+  }
 }
 
 /// generated route for
@@ -325,6 +523,20 @@ class PatientMainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PatientMoodHistoryScreen]
+class PatientMoodHistoryRoute extends PageRouteInfo<void> {
+  const PatientMoodHistoryRoute({List<PageRouteInfo>? children})
+      : super(
+          PatientMoodHistoryRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PatientMoodHistoryRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [PatientMoodTrackerScreen]
 class PatientMoodTrackerRoute extends PageRouteInfo<void> {
   const PatientMoodTrackerRoute({List<PageRouteInfo>? children})
@@ -348,20 +560,6 @@ class PatientProfileRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'PatientProfileRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [PatientScheduleScreen]
-class PatientScheduleRoute extends PageRouteInfo<void> {
-  const PatientScheduleRoute({List<PageRouteInfo>? children})
-      : super(
-          PatientScheduleRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'PatientScheduleRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

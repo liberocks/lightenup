@@ -9,6 +9,7 @@ class Chips extends StatelessWidget {
     super.key,
     this.background,
     this.color,
+    this.borderColor,
     this.selected = false,
   });
 
@@ -22,12 +23,18 @@ class Chips extends StatelessWidget {
 
   final bool selected;
 
+  final Color? borderColor;
+
   Color get fontColor {
     return color ?? ThemeColor.pale;
   }
 
   Color get backgroundColor {
     return background ?? ThemeColor.white;
+  }
+
+  Color get border {
+    return borderColor ?? color ?? ThemeColor.pale;
   }
 
   @override
@@ -39,7 +46,7 @@ class Chips extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
           side: BorderSide(
-            color: fontColor,
+            color: border,
             width: 1,
           ),
         ),

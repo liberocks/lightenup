@@ -175,7 +175,9 @@ class PatientHomeScreen extends StatelessWidget {
                                 width: double.infinity,
                                 child: SecondaryButton(
                                   text: 'View mood history',
-                                  onPressed: () {},
+                                  onPressed: context
+                                      .read<PatientNavigationCubit>()
+                                      .switchToSchedule,
                                 ),
                               ),
                             ),

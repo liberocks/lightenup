@@ -18,7 +18,7 @@ class PatientMainScreen extends StatelessWidget {
             children: <Widget>[
               patientNavigationState.when(
                 home: () => const PatientHomeScreen(),
-                schedule: () => const PatientScheduleScreen(),
+                schedule: () => const PatientMoodHistoryScreen(),
                 profile: () => const PatientProfileScreen(),
               ),
               Container(
@@ -45,7 +45,7 @@ class PatientMainScreen extends StatelessWidget {
                                 .switchToHome,
                           ),
                           NavigationItem(
-                            text: 'Schedule',
+                            text: 'Log',
                             icon: Icons.calendar_month_outlined,
                             color: Colors.purple[100]!,
                             selected: patientNavigationState ==

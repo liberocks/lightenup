@@ -3,7 +3,7 @@ export 'patient_assignment_fact_or_opinion_worksheet/patient_assignment_fact_or_
 export 'patient_assignment_list/patient_assignment_list.dart';
 export 'patient_assignment_socratic_questions_worksheet/patient_assignment_socratic_questions_worksheet.dart';
 export 'patient_home/patient_home.dart';
+export 'patient_mood_history/patient_mood_history.dart';
 export 'patient_mood_tracker/patient_mood_tracker.dart';
 export 'patient_navigation.dart';
 export 'patient_profile/patient_profile.dart';
-export 'patient_schedule/patient_schedule.dart';
