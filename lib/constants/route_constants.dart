@@ -21,10 +21,6 @@ class RouteConstants {
   static const String doctorPatientDetails = '/doctor-patient-details';
   static const String doctorPatientMoodHistory = '/doctor-patient-mood-history';
   static const String doctorNewAssignment = '/doctor-new-assignment';
-  static const String doctorAssignmentSocraticQuestionsTemplate =
-      '/doctor-assignment-socratic-questions-template';
-  static const String doctorAssignmentFactOrOpinionTemplate =
-      '/doctor-assignment-fact-or-opinion-template';
 
   // common
   static const String choice = '/choice';

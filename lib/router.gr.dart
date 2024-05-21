@@ -27,28 +27,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ChoiceScreen(),
       );
     },
-    DoctorAssignmentFactOrOpinionTemplateRoute.name: (routeData) {
-      final args =
-          routeData.argsAs<DoctorAssignmentFactOrOpinionTemplateRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: DoctorAssignmentFactOrOpinionTemplateScreen(
-          assignment: args.assignment,
-          key: args.key,
-        ),
-      );
-    },
-    DoctorAssignmentSocraticQuestionsTemplateRoute.name: (routeData) {
-      final args = routeData
-          .argsAs<DoctorAssignmentSocraticQuestionsTemplateRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: DoctorAssignmentSocraticQuestionsTemplateScreen(
-          assignment: args.assignment,
-          key: args.key,
-        ),
-      );
-    },
     DoctorAssignmentsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -205,84 +183,6 @@ class ChoiceRoute extends PageRouteInfo<void> {
   static const String name = 'ChoiceRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [DoctorAssignmentFactOrOpinionTemplateScreen]
-class DoctorAssignmentFactOrOpinionTemplateRoute
-    extends PageRouteInfo<DoctorAssignmentFactOrOpinionTemplateRouteArgs> {
-  DoctorAssignmentFactOrOpinionTemplateRoute({
-    required PatientAssignment assignment,
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          DoctorAssignmentFactOrOpinionTemplateRoute.name,
-          args: DoctorAssignmentFactOrOpinionTemplateRouteArgs(
-            assignment: assignment,
-            key: key,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'DoctorAssignmentFactOrOpinionTemplateRoute';
-
-  static const PageInfo<DoctorAssignmentFactOrOpinionTemplateRouteArgs> page =
-      PageInfo<DoctorAssignmentFactOrOpinionTemplateRouteArgs>(name);
-}
-
-class DoctorAssignmentFactOrOpinionTemplateRouteArgs {
-  const DoctorAssignmentFactOrOpinionTemplateRouteArgs({
-    required this.assignment,
-    this.key,
-  });
-
-  final PatientAssignment assignment;
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'DoctorAssignmentFactOrOpinionTemplateRouteArgs{assignment: $assignment, key: $key}';
-  }
-}
-
-/// generated route for
-/// [DoctorAssignmentSocraticQuestionsTemplateScreen]
-class DoctorAssignmentSocraticQuestionsTemplateRoute
-    extends PageRouteInfo<DoctorAssignmentSocraticQuestionsTemplateRouteArgs> {
-  DoctorAssignmentSocraticQuestionsTemplateRoute({
-    required PatientAssignment assignment,
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          DoctorAssignmentSocraticQuestionsTemplateRoute.name,
-          args: DoctorAssignmentSocraticQuestionsTemplateRouteArgs(
-            assignment: assignment,
-            key: key,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'DoctorAssignmentSocraticQuestionsTemplateRoute';
-
-  static const PageInfo<DoctorAssignmentSocraticQuestionsTemplateRouteArgs>
-      page = PageInfo<DoctorAssignmentSocraticQuestionsTemplateRouteArgs>(name);
-}
-
-class DoctorAssignmentSocraticQuestionsTemplateRouteArgs {
-  const DoctorAssignmentSocraticQuestionsTemplateRouteArgs({
-    required this.assignment,
-    this.key,
-  });
-
-  final PatientAssignment assignment;
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'DoctorAssignmentSocraticQuestionsTemplateRouteArgs{assignment: $assignment, key: $key}';
-  }
 }
 
 /// generated route for

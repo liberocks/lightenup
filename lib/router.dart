@@ -83,14 +83,6 @@ class AppRouter extends _$AppRouter {
           path: RouteConstants.doctorNewAssignment,
           page: DoctorNewAssignmentRoute.page,
         ),
-        SlideRoute(
-          path: RouteConstants.doctorAssignmentSocraticQuestionsTemplate,
-          page: DoctorAssignmentSocraticQuestionsTemplateRoute.page,
-        ),
-        SlideRoute(
-          path: RouteConstants.doctorAssignmentFactOrOpinionTemplate,
-          page: DoctorAssignmentFactOrOpinionTemplateRoute.page,
-        ),
       ];
 }
 
