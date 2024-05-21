@@ -82,7 +82,17 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: DoctorPatientDetailsScreen(
-          patient: args.patient,
+          patientId: args.patientId,
+          key: args.key,
+        ),
+      );
+    },
+    DoctorPatientMoodHistoryRoute.name: (routeData) {
+      final args = routeData.argsAs<DoctorPatientMoodHistoryRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: DoctorPatientMoodHistoryScreen(
+          patientId: args.patientId,
           key: args.key,
         ),
       );
@@ -361,13 +371,13 @@ class DoctorNewAssignmentRouteArgs {
 class DoctorPatientDetailsRoute
     extends PageRouteInfo<DoctorPatientDetailsRouteArgs> {
   DoctorPatientDetailsRoute({
-    required Patient patient,
+    required int patientId,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
           DoctorPatientDetailsRoute.name,
           args: DoctorPatientDetailsRouteArgs(
-            patient: patient,
+            patientId: patientId,
             key: key,
           ),
           initialChildren: children,
@@ -381,17 +391,56 @@ class DoctorPatientDetailsRoute
 
 class DoctorPatientDetailsRouteArgs {
   const DoctorPatientDetailsRouteArgs({
-    required this.patient,
+    required this.patientId,
     this.key,
   });
 
-  final Patient patient;
+  final int patientId;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'DoctorPatientDetailsRouteArgs{patient: $patient, key: $key}';
+    return 'DoctorPatientDetailsRouteArgs{patientId: $patientId, key: $key}';
+  }
+}
+
+/// generated route for
+/// [DoctorPatientMoodHistoryScreen]
+class DoctorPatientMoodHistoryRoute
+    extends PageRouteInfo<DoctorPatientMoodHistoryRouteArgs> {
+  DoctorPatientMoodHistoryRoute({
+    required int patientId,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DoctorPatientMoodHistoryRoute.name,
+          args: DoctorPatientMoodHistoryRouteArgs(
+            patientId: patientId,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DoctorPatientMoodHistoryRoute';
+
+  static const PageInfo<DoctorPatientMoodHistoryRouteArgs> page =
+      PageInfo<DoctorPatientMoodHistoryRouteArgs>(name);
+}
+
+class DoctorPatientMoodHistoryRouteArgs {
+  const DoctorPatientMoodHistoryRouteArgs({
+    required this.patientId,
+    this.key,
+  });
+
+  final int patientId;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'DoctorPatientMoodHistoryRouteArgs{patientId: $patientId, key: $key}';
   }
 }
 

@@ -10,6 +10,7 @@ class SecondaryButton extends StatelessWidget {
     this.background,
     this.color,
     this.disabled,
+    this.borderColor,
     this.loading = false,
   });
 
@@ -22,6 +23,8 @@ class SecondaryButton extends StatelessWidget {
   final void Function() onPressed;
 
   final bool? disabled;
+
+  final Color? borderColor;
 
   final bool loading;
 
@@ -41,7 +44,7 @@ class SecondaryButton extends StatelessWidget {
           backgroundColor: backgroundColor,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           side: BorderSide(
-            color: fontColor,
+            color: borderColor ?? fontColor,
             width: 1.5,
           ),
         ),

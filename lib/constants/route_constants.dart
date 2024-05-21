@@ -19,6 +19,7 @@ class RouteConstants {
   static const String doctorSchedule = '/doctor-schedule';
   static const String doctorProfile = '/doctor-profile';
   static const String doctorPatientDetails = '/doctor-patient-details';
+  static const String doctorPatientMoodHistory = '/doctor-patient-mood-history';
   static const String doctorNewAssignment = '/doctor-new-assignment';
   static const String doctorAssignmentSocraticQuestionsTemplate =
       '/doctor-assignment-socratic-questions-template';

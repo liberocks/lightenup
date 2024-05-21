@@ -124,7 +124,9 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                                     profilePicture: e.profilePicture,
                                     onTap: () {
                                       AutoRouter.of(context).push(
-                                        DoctorPatientDetailsRoute(patient: e),
+                                        DoctorPatientDetailsRoute(
+                                          patientId: e.id,
+                                        ),
                                       );
                                     },
                                   ),

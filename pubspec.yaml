@@ -54,6 +54,7 @@ dependencies:
   collection: ^1.18.0
   flutter_widget_from_html: ^0.15.0
   toastification: ^2.0.0
+  awesome_dialog: ^3.2.1
 
 dev_dependencies:
   flutter_test:

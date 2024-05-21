@@ -10,6 +10,17 @@ class DoctorPatientListCubit extends HydratedCubit<DoctorPatientListState> {
     emit(state.copyWith(patients: defaultPatients));
   }
 
+  void setPatientDiagnosis(int patientId, String diagnosis) {
+    final patients = state.patients.map((patient) {
+      if (patient.id == patientId) {
+        return patient.copyWith(diagnosis: diagnosis);
+      }
+      return patient;
+    }).toList();
+
+    emit(state.copyWith(patients: patients));
+  }
+
   @override
   DoctorPatientListState fromJson(Map<String, dynamic> json) {
     return DoctorPatientListState.fromJson(json);
