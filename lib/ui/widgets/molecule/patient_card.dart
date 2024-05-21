@@ -16,10 +16,10 @@ class PatientCard extends StatelessWidget {
   /// The name of the patient
   final String name;
 
-  /// The subtitle of the to-do card
+  /// The diagnosis of the patient
   final String diagnosis;
 
-  /// The icon of the to-do card
+  /// The profile picture of the patient
   final String profilePicture;
 
   /// The function to be called when the card is tapped

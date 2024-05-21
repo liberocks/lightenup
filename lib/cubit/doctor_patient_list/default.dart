@@ -9,7 +9,22 @@ List<Patient> defaultPatients = [
         'https://images.unsplash.com/photo-1515077678510-ce3bdf418862',
     assignmentAnswers: [],
     assignments: [],
-    moods: [],
+    moods: [
+      PatientMood(
+        id: -1,
+        emoji: '🙂',
+        moodValue: 0,
+        colorHex: '#004895',
+        backgroundHexStart: '#80DEF8',
+        backgroundHexEnd: '#80F8CA',
+        mood: 'happy',
+        moodText: 'Happy!',
+        notes:
+            'I am feeling great today! I had a good day at work and I am excited for the weekend!',
+        reasons: ['Social', 'Work', 'Family', 'Health'],
+        date: DateTime.now(),
+      ),
+    ],
   ),
   Patient(
     id: 2,
@@ -19,7 +34,22 @@ List<Patient> defaultPatients = [
         'https://images.unsplash.com/photo-1580489944761-15a19d654956',
     assignmentAnswers: [],
     assignments: [],
-    moods: [],
+    moods: [
+      PatientMood(
+        id: -1,
+        emoji: '😊',
+        moodValue: 1,
+        colorHex: '#FFFFFF',
+        backgroundHexStart: '#B280F8',
+        backgroundHexEnd: '#D680F8',
+        mood: 'surprised',
+        moodText: 'Surprised',
+        notes:
+            'In the morning, I received a surprise gift from my friend. It made my day!',
+        reasons: ['Food', 'School', 'Work', 'Family', 'Health'],
+        date: DateTime.now(),
+      ),
+    ],
   ),
   Patient(
     id: 3,
@@ -29,6 +59,21 @@ List<Patient> defaultPatients = [
         'https://images.unsplash.com/photo-1438761681033-6461ffad8d80',
     assignmentAnswers: [],
     assignments: [],
-    moods: [],
+    moods: [
+      PatientMood(
+        id: -1,
+        emoji: '😡',
+        moodValue: 5,
+        colorHex: '#FFFFFF',
+        backgroundHexStart: '#F8808A',
+        backgroundHexEnd: '#F89A80',
+        mood: 'angry',
+        moodText: 'Angry',
+        notes:
+            'There were some arguments at work today. I am feeling angry and frustrated. I need to calm down.',
+        reasons: ['Work'],
+        date: DateTime.now(),
+      ),
+    ],
   ),
 ];

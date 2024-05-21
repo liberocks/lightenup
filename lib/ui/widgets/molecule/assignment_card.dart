@@ -9,6 +9,7 @@ class AssignmentCard extends StatelessWidget {
     required this.type,
     required this.date,
     this.color,
+    this.status,
     super.key,
     this.onTap,
   });
@@ -21,6 +22,9 @@ class AssignmentCard extends StatelessWidget {
 
   /// The date of the assignment
   final DateTime date;
+
+  /// The status of the assignment
+  final String? status;
 
   /// The function to be called when the card is tapped
   final Function? onTap;
@@ -90,7 +94,7 @@ class AssignmentCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  dateFormatter.format(date),
+                  status ?? dateFormatter.format(date),
                   style: TextStyle(
                     fontSize: 14,
                     letterSpacing: 0.25,

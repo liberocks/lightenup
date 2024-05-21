@@ -82,7 +82,7 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: DoctorPatientDetailsScreen(
-          assignment: args.assignment,
+          patient: args.patient,
           key: args.key,
         ),
       );
@@ -361,13 +361,13 @@ class DoctorNewAssignmentRouteArgs {
 class DoctorPatientDetailsRoute
     extends PageRouteInfo<DoctorPatientDetailsRouteArgs> {
   DoctorPatientDetailsRoute({
-    required PatientAssignment assignment,
+    required Patient patient,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
           DoctorPatientDetailsRoute.name,
           args: DoctorPatientDetailsRouteArgs(
-            assignment: assignment,
+            patient: patient,
             key: key,
           ),
           initialChildren: children,
@@ -381,17 +381,17 @@ class DoctorPatientDetailsRoute
 
 class DoctorPatientDetailsRouteArgs {
   const DoctorPatientDetailsRouteArgs({
-    required this.assignment,
+    required this.patient,
     this.key,
   });
 
-  final PatientAssignment assignment;
+  final Patient patient;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'DoctorPatientDetailsRouteArgs{assignment: $assignment, key: $key}';
+    return 'DoctorPatientDetailsRouteArgs{patient: $patient, key: $key}';
   }
 }
 

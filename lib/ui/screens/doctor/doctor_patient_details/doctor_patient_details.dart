@@ -1,21 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:lightenup/constants/constants.dart';
 import 'package:lightenup/data/model/model.dart';
-import 'package:lightenup/router.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
 
 @RoutePage()
 class DoctorPatientDetailsScreen extends StatelessWidget {
   const DoctorPatientDetailsScreen({
-    required this.assignment,
+    required this.patient,
     super.key,
   });
 
-  final PatientAssignment assignment;
+  final Patient patient;
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +21,8 @@ class DoctorPatientDetailsScreen extends StatelessWidget {
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
         child: PrimaryButton(
-          text: 'Start assigments',
-          onPressed: () {
-            if (assignment.type == AssignmentType.Socratic_Questions) {
-              AutoRouter.of(context).push(
-                PatientAssignmentSocratesQuestionsRoute(
-                  assignment: assignment,
-                ),
-              );
-            } else if (assignment.type == AssignmentType.Facts_or_Opinion) {
-              AutoRouter.of(context).push(
-                PatientAssignmentFactOrOpinionRoute(
-                  assignment: assignment,
-                ),
-              );
-            }
-          },
+          text: 'Send new assignment',
+          onPressed: () {},
         ),
       ),
       onInit: () {
@@ -70,12 +54,7 @@ class DoctorPatientDetailsScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.all(0),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    HexColor('#3A3A3A'),
-                    HexColor('#252525'),
-                  ],
-                ),
+                color: HexColor('#F0EBE8'),
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(8),
                   bottomRight: Radius.circular(8),
@@ -84,8 +63,7 @@ class DoctorPatientDetailsScreen extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.only(top: 6),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
                       children: [
@@ -93,145 +71,195 @@ class DoctorPatientDetailsScreen extends StatelessWidget {
                           onPressed: () {
                             context.router.popForced();
                           },
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.arrow_back,
-                            color: Colors.white,
+                            color: HexColor('#1D1B20'),
                           ),
                         ),
                         const SizedBox(width: 18),
-                        const Text(
-                          'Assignment details',
-                          style: TextStyle(
-                            fontSize: 22,
-                            height: 28 / 22,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Rubik',
-                            color: Colors.white,
-                            decoration: TextDecoration.none,
-                          ),
+                        const Heading(
+                          text: 'Patient details',
+                          size: SizeOfThing.large,
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Display(
-                            text: assignment.type
-                                .toString()
-                                .replaceAll('AssignmentType.', '')
-                                .replaceAll('_', ' '),
-                            size: SizeOfThing.small,
-                            color: Colors.white,
-                          ),
-                          const SizedBox(height: 16),
-                          HtmlWidget(
-                            assignment.subtitle,
-                            textStyle: const TextStyle(color: Colors.white),
-                          ),
-                          const SizedBox(height: 20),
-                        ],
-                      ),
+                    const SizedBox(height: 16),
+                    CircleAvatar(
+                      backgroundColor: HexColor('#AAAAAA'),
+                      backgroundImage: NetworkImage(patient.profilePicture),
+                      radius: 48,
                     ),
+                    const SizedBox(height: 16),
+                    Headline(text: patient.name),
+                    const SizedBox(height: 24),
                   ],
                 ),
               ),
             ),
+            const SizedBox(height: 16),
+            Container(
+              color: HexColor('#F0EBE8'),
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              width: MediaQuery.of(context).size.width - 32,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(
+                    Icons.assignment,
+                    color: HexColor('#444444'),
+                    size: 24,
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Diagnosis',
+                            style: TextStyle(
+                              fontSize: 16,
+                              height: 24 / 16,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'Roboto',
+                              color: HexColor('#111111'),
+                              decoration: TextDecoration.none,
+                            ),
+                          ),
+                          Text(
+                            patient.diagnosis,
+                            style: TextStyle(
+                              fontSize: 14,
+                              height: 20 / 14,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'Roboto',
+                              color: HexColor('#444444'),
+                              decoration: TextDecoration.none,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Icon(
+                    Icons.edit_outlined,
+                    color: HexColor('#444444'),
+                    size: 18,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Heading(
+                      text: 'Daily mood tracker',
+                      color: HexColor('#111111'),
+                    ),
+                  ),
+                  Label(
+                    text: 'View log',
+                    color: HexColor('#6750A4'),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                height: 72,
+                width: MediaQuery.of(context).size.width - 32,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      HexColor(patient.moods.first.backgroundHexStart),
+                      HexColor(patient.moods.first.backgroundHexEnd),
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 0,
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        patient.moods.first.emoji,
+                        style: const TextStyle(fontSize: 36),
+                      ),
+                      const SizedBox(width: 16),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Heading(
+                            text: patient.moods.first.moodText,
+                            size: SizeOfThing.large,
+                            color: HexColor(patient.moods.first.colorHex),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Heading(
-                    text: 'Given by',
-                    size: SizeOfThing.small,
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: ThemeColor.primary500,
-                        radius: 20,
-                        child: Body(
-                          text: assignment.author[0],
-                          color: Colors.white,
-                          size: SizeOfThing.large,
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Body(
-                          text: assignment.author,
-                          size: SizeOfThing.large,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  const Heading(
-                    text: 'What do you need to prepare?',
-                    size: SizeOfThing.small,
-                  ),
-                  const SizedBox(height: 16),
-                  ...assignment.preparations
-                      .map(
-                        (preparation) => [
-                          Container(
-                            color: ThemeColor.primary100,
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 8,
-                              horizontal: 16,
-                            ),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.check_circle_outline,
-                                  color: HexColor('#21DB33'),
-                                ),
-                                const SizedBox(width: 12),
-                                Expanded(
-                                  child: Body(
-                                    text: preparation,
-                                    size: SizeOfThing.medium,
-                                  ),
-                                ),
-                              ],
-                            ),
+                  const Label(text: 'Reason:', size: SizeOfThing.large),
+                  const SizedBox(height: 12),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: patient.moods.first.reasons
+                        .map(
+                          (e) => Chips(
+                            text: e,
+                            borderColor: Colors.transparent,
+                            selected: false,
+                            color: Colors.black,
+                            background: HexColor('#E6E6E6'),
+                            onPressed: () {},
                           ),
-                          const SizedBox(height: 8),
-                        ],
-                      )
-                      .expand((i) => i),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      const Heading(
-                        text: 'Notes from ',
-                        size: SizeOfThing.small,
-                      ),
-                      Heading(
-                        text:
-                            '${assignment.authorHonorific}${assignment.authorHonorific != null ? ' ' : ''}${assignment.author.split(' ')[0]}',
-                        size: SizeOfThing.small,
-                        color: HexColor('#6750A4'),
-                      ),
-                    ],
+                        )
+                        .toList(),
                   ),
-                  const SizedBox(height: 8),
-                  Body(text: assignment.notes ?? '', size: SizeOfThing.large),
-                  const SizedBox(height: 16),
-                  const Heading(
-                    text: 'Estimated time',
-                    size: SizeOfThing.small,
-                  ),
+                  const SizedBox(height: 24),
+                  const Label(text: 'Notes', size: SizeOfThing.large),
                   const SizedBox(height: 8),
                   Body(
-                    text: assignment.duration > 1
-                        ? '${assignment.duration} minutes'
-                        : '${assignment.duration} minute',
-                    size: SizeOfThing.large,
+                    text: patient.moods.first.notes,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Heading(
+                    text: 'Last assignment',
+                    color: HexColor('#111111'),
+                  ),
+                  AssignmentCard(
+                    color: HexColor('F8F8F8'),
+                    title: 'Anxiety Worksheet',
+                    type: AssignmentType.Socratic_Questions,
+                    date: DateTime.now(),
+                    status: 'Finished',
+                    onTap: () {},
                   ),
                 ],
               ),

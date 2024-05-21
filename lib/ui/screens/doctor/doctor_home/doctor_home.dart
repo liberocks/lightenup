@@ -6,6 +6,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:lightenup/constants/colors.dart';
 import 'package:lightenup/constants/size.dart';
 import 'package:lightenup/cubit/cubit.dart';
+import 'package:lightenup/router.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
 
 @RoutePage()
@@ -73,18 +74,23 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                           bottomRight: Radius.circular(18),
                         ),
                       ),
-                      child: Container(
-                        padding: const EdgeInsets.all(32.0),
-                        child: const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Headline(
-                              text: 'Good morning ☀️',
-                              size: SizeOfThing.small,
-                            ),
-                            Display(text: 'Dr. Karina'),
-                          ],
+                      child: InkWell(
+                        onLongPress: context
+                            .read<DoctorPatientListCubit>()
+                            .resetPatientList,
+                        child: Container(
+                          padding: const EdgeInsets.all(32.0),
+                          child: const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Headline(
+                                text: 'Good morning ☀️',
+                                size: SizeOfThing.small,
+                              ),
+                              Display(text: 'Dr. Karina'),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -116,6 +122,11 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                                     name: e.name,
                                     diagnosis: e.diagnosis,
                                     profilePicture: e.profilePicture,
+                                    onTap: () {
+                                      AutoRouter.of(context).push(
+                                        DoctorPatientDetailsRoute(patient: e),
+                                      );
+                                    },
                                   ),
                                 )
                                 .toList(),
