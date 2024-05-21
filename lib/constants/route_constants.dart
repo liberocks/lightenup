@@ -15,8 +15,11 @@ class RouteConstants {
   // doctor
   static const String doctor = '/doctor';
   static const String doctorHome = '/doctor-home';
+  static const String doctorAssignments = '/doctor-assignments';
+  static const String doctorSchedule = '/doctor-schedule';
+  static const String doctorProfile = '/doctor-profile';
   static const String doctorPatientDetails = '/doctor-patient-details';
-  static const String doctorNewAssigment = '/doctor-new-assignment';
+  static const String doctorNewAssignment = '/doctor-new-assignment';
   static const String doctorAssignmentSocraticQuestionsTemplate =
       '/doctor-assignment-socratic-questions-template';
   static const String doctorAssignmentFactOrOpinionTemplate =

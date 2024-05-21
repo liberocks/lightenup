@@ -7,4 +7,16 @@ class DoctorNavigationCubit extends Cubit<DoctorNavigationState> {
   void switchToHome() {
     emit(const DoctorNavigationState.home());
   }
+
+  void switchToAssignments() {
+    emit(const DoctorNavigationState.assignments());
+  }
+
+  void switchToSchedule() {
+    emit(const DoctorNavigationState.schedule());
+  }
+
+  void switchToProfile() {
+    emit(const DoctorNavigationState.profile());
+  }
 }

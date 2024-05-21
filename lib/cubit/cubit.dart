@@ -2,6 +2,8 @@ export 'choice/choice_cubit.dart';
 export 'choice/choice_state.dart';
 export 'doctor_navigation/doctor_navigation_cubit.dart';
 export 'doctor_navigation/doctor_navigation_state.dart';
+export 'doctor_patient_list/doctor_patient_list_cubit.dart';
+export 'doctor_patient_list/doctor_patient_list_state.dart';
 export 'patient_assignment/patient_assignment_cubit.dart';
 export 'patient_assignment/patient_assignment_state.dart';
 export 'patient_mood_tracker/patient_mood_tracker_cubit.dart';

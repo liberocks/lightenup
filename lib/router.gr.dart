@@ -49,6 +49,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    DoctorAssignmentsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DoctorAssignmentsScreen(),
+      );
+    },
     DoctorHomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -79,6 +85,18 @@ abstract class _$AppRouter extends RootStackRouter {
           assignment: args.assignment,
           key: args.key,
         ),
+      );
+    },
+    DoctorProfileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DoctorProfileScreen(),
+      );
+    },
+    DoctorScheduleRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DoctorScheduleScreen(),
       );
     },
     PatientAssignmentDetailRoute.name: (routeData) {
@@ -258,6 +276,20 @@ class DoctorAssignmentSocraticQuestionsTemplateRouteArgs {
 }
 
 /// generated route for
+/// [DoctorAssignmentsScreen]
+class DoctorAssignmentsRoute extends PageRouteInfo<void> {
+  const DoctorAssignmentsRoute({List<PageRouteInfo>? children})
+      : super(
+          DoctorAssignmentsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DoctorAssignmentsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [DoctorHomeScreen]
 class DoctorHomeRoute extends PageRouteInfo<void> {
   const DoctorHomeRoute({List<PageRouteInfo>? children})
@@ -361,6 +393,34 @@ class DoctorPatientDetailsRouteArgs {
   String toString() {
     return 'DoctorPatientDetailsRouteArgs{assignment: $assignment, key: $key}';
   }
+}
+
+/// generated route for
+/// [DoctorProfileScreen]
+class DoctorProfileRoute extends PageRouteInfo<void> {
+  const DoctorProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          DoctorProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DoctorProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DoctorScheduleScreen]
+class DoctorScheduleRoute extends PageRouteInfo<void> {
+  const DoctorScheduleRoute({List<PageRouteInfo>? children})
+      : super(
+          DoctorScheduleRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DoctorScheduleRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

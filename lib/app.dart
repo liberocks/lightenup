@@ -42,14 +42,17 @@ class _MyAppState extends State<MyApp> {
         BlocProvider<PatientNavigationCubit>(
           create: (BuildContext context) => PatientNavigationCubit(),
         ),
-        BlocProvider<DoctorNavigationCubit>(
-          create: (BuildContext context) => DoctorNavigationCubit(),
-        ),
         BlocProvider<PatientMoodTrackerCubit>(
           create: (BuildContext context) => PatientMoodTrackerCubit(),
         ),
         BlocProvider<PatientAssignmentCubit>(
           create: (BuildContext context) => PatientAssignmentCubit(),
+        ),
+        BlocProvider<DoctorNavigationCubit>(
+          create: (BuildContext context) => DoctorNavigationCubit(),
+        ),
+        BlocProvider<DoctorPatientListCubit>(
+          create: (BuildContext context) => DoctorPatientListCubit(),
         ),
       ],
       child: Directionality(
