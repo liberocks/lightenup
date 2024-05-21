@@ -392,7 +392,7 @@ class _DoctorAssignmentSocraticQuestionsTemplateScreenState
                 title: const Text(
                   'Assignment submitted!',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),
                 ),

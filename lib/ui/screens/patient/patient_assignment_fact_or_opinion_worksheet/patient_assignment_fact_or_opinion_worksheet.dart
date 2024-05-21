@@ -306,7 +306,7 @@ class _PatientAssignmentFactOrOpinionScreenState
                 title: const Text(
                   'Assignment submitted!',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),
                 ),

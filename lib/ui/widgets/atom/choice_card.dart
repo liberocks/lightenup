@@ -28,11 +28,11 @@ class ChoiceCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
+        padding: const EdgeInsets.all(0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
         ),
         width: boxSize,
-        height: 1.2 * boxSize,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -41,7 +41,11 @@ class ChoiceCard extends StatelessWidget {
                 topLeft: Radius.circular(8),
                 topRight: Radius.circular(8),
               ),
-              child: Image.asset(asset),
+              child: Image.asset(
+                asset,
+                height: boxSize,
+                width: boxSize,
+              ),
             ),
             Container(
               decoration: BoxDecoration(
