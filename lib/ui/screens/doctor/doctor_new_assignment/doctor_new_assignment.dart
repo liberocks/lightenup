@@ -1,21 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:lightenup/constants/constants.dart';
-import 'package:lightenup/data/model/model.dart';
-import 'package:lightenup/router.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
 
 @RoutePage()
 class DoctorNewAssignmentScreen extends StatelessWidget {
   const DoctorNewAssignmentScreen({
-    required this.assignment,
+    required this.patientId,
     super.key,
   });
 
-  final PatientAssignment assignment;
+  final int patientId;
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +20,8 @@ class DoctorNewAssignmentScreen extends StatelessWidget {
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
         child: PrimaryButton(
-          text: 'Start assigments',
-          onPressed: () {
-            if (assignment.type == AssignmentType.Socratic_Questions) {
-              AutoRouter.of(context).push(
-                PatientAssignmentSocratesQuestionsRoute(
-                  assignment: assignment,
-                ),
-              );
-            } else if (assignment.type == AssignmentType.Facts_or_Opinion) {
-              AutoRouter.of(context).push(
-                PatientAssignmentFactOrOpinionRoute(
-                  assignment: assignment,
-                ),
-              );
-            }
-          },
+          text: 'View worksheet sample',
+          onPressed: () {},
         ),
       ),
       onInit: () {
@@ -112,127 +95,26 @@ class DoctorNewAssignmentScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Display(
-                            text: assignment.type
-                                .toString()
-                                .replaceAll('AssignmentType.', '')
-                                .replaceAll('_', ' '),
-                            size: SizeOfThing.small,
-                            color: Colors.white,
-                          ),
-                          const SizedBox(height: 16),
-                          HtmlWidget(
-                            assignment.subtitle,
-                            textStyle: const TextStyle(color: Colors.white),
-                          ),
-                          const SizedBox(height: 20),
-                        ],
-                      ),
-                    ),
                   ],
                 ),
               ),
             ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Heading(
+                  Heading(
                     text: 'Given by',
                     size: SizeOfThing.small,
                   ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: ThemeColor.primary500,
-                        radius: 20,
-                        child: Body(
-                          text: assignment.author[0],
-                          color: Colors.white,
-                          size: SizeOfThing.large,
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Body(
-                          text: assignment.author,
-                          size: SizeOfThing.large,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  const Heading(
+                  SizedBox(height: 8),
+                  SizedBox(height: 16),
+                  Heading(
                     text: 'What do you need to prepare?',
                     size: SizeOfThing.small,
                   ),
-                  const SizedBox(height: 16),
-                  ...assignment.preparations
-                      .map(
-                        (preparation) => [
-                          Container(
-                            color: ThemeColor.primary100,
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 8,
-                              horizontal: 16,
-                            ),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.check_circle_outline,
-                                  color: HexColor('#21DB33'),
-                                ),
-                                const SizedBox(width: 12),
-                                Expanded(
-                                  child: Body(
-                                    text: preparation,
-                                    size: SizeOfThing.medium,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                        ],
-                      )
-                      .expand((i) => i),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      const Heading(
-                        text: 'Notes from ',
-                        size: SizeOfThing.small,
-                      ),
-                      Heading(
-                        text:
-                            '${assignment.authorHonorific}${assignment.authorHonorific != null ? ' ' : ''}${assignment.author.split(' ')[0]}',
-                        size: SizeOfThing.small,
-                        color: HexColor('#6750A4'),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Body(text: assignment.notes ?? '', size: SizeOfThing.large),
-                  const SizedBox(height: 16),
-                  const Heading(
-                    text: 'Estimated time',
-                    size: SizeOfThing.small,
-                  ),
-                  const SizedBox(height: 8),
-                  Body(
-                    text: assignment.duration > 1
-                        ? '${assignment.duration} minutes'
-                        : '${assignment.duration} minute',
-                    size: SizeOfThing.large,
-                  ),
+                  SizedBox(height: 16),
                 ],
               ),
             ),

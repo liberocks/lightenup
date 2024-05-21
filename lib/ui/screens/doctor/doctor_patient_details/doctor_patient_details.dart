@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:lightenup/constants/constants.dart';
 import 'package:lightenup/cubit/cubit.dart';
+import 'package:lightenup/router.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
 
 @RoutePage()
@@ -134,7 +135,13 @@ class _DoctorPatientDetailsScreenState
             padding: const EdgeInsets.all(16),
             child: PrimaryButton(
               text: 'Send new assignment',
-              onPressed: () {},
+              onPressed: () {
+                AutoRouter.of(context).push(
+                  DoctorNewAssignmentRoute(
+                    patientId: widget.patientId,
+                  ),
+                );
+              },
             ),
           ),
           onInit: () {
@@ -281,9 +288,18 @@ class _DoctorPatientDetailsScreenState
                           color: HexColor('#111111'),
                         ),
                       ),
-                      Label(
-                        text: 'View log',
-                        color: HexColor('#6750A4'),
+                      InkWell(
+                        onTap: () {
+                          context.router.push(
+                            DoctorPatientMoodHistoryRoute(
+                              patientId: widget.patientId,
+                            ),
+                          );
+                        },
+                        child: Label(
+                          text: 'View log',
+                          color: HexColor('#6750A4'),
+                        ),
                       ),
                     ],
                   ),
