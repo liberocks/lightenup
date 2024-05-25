@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -118,19 +119,27 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                           Wrap(
                             children: doctorPatientListState.patients
                                 .map(
-                                  (e) => PatientCard(
-                                    name: e.name,
-                                    diagnosis: e.diagnosis,
-                                    profilePicture: e.profilePicture,
-                                    onTap: () {
-                                      AutoRouter.of(context).push(
-                                        DoctorPatientDetailsRoute(
-                                          patientId: e.id,
-                                        ),
-                                      );
-                                    },
-                                  ),
+                                  (e) => [
+                                    PatientCard(
+                                      name: e.name,
+                                      diagnosis: e.diagnosis,
+                                      profilePicture: e.profilePicture,
+                                      onTap: () {
+                                        if (e.name == 'Adelia Junianti') {
+                                          AutoRouter.of(context).push(
+                                            DoctorPatientDetailsRoute(
+                                              patientId: e.id,
+                                            ),
+                                          );
+                                        }
+                                      },
+                                    ),
+                                    Container(
+                                      height: 16,
+                                    ),
+                                  ],
                                 )
+                                .flattened
                                 .toList(),
                           ),
                           const SizedBox(height: 60),

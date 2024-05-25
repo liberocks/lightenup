@@ -5,8 +5,7 @@ List<Patient> defaultPatients = [
     id: 1,
     name: 'Adelia Junianti',
     diagnosis: 'Anxiety',
-    profilePicture:
-        'https://images.unsplash.com/photo-1515077678510-ce3bdf418862',
+    profilePicture: 'assets/images/photo-1515077678510-ce3bdf418862.jpeg',
     assignmentAnswers: [],
     assignments: [],
     moods: [
@@ -30,8 +29,7 @@ List<Patient> defaultPatients = [
     id: 2,
     name: 'Lidya Chairunnisa',
     diagnosis: 'Anxiety',
-    profilePicture:
-        'https://images.unsplash.com/photo-1580489944761-15a19d654956',
+    profilePicture: 'assets/images/photo-1580489944761-15a19d654956.jpeg',
     assignmentAnswers: [],
     assignments: [],
     moods: [
@@ -55,8 +53,7 @@ List<Patient> defaultPatients = [
     id: 3,
     name: 'Dinda Tamara',
     diagnosis: 'Sleeping disorder',
-    profilePicture:
-        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80',
+    profilePicture: 'assets/images/photo-1438761681033-6461ffad8d80.jpeg',
     assignmentAnswers: [],
     assignments: [],
     moods: [

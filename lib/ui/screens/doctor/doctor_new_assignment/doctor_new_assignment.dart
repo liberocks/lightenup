@@ -604,9 +604,7 @@ class _DoctorNewAssignmentScreenState extends State<DoctorNewAssignmentScreen> {
                       const SizedBox(height: 16),
                       CircleAvatar(
                         backgroundColor: HexColor('#AAAAAA'),
-                        backgroundImage: NetworkImage(
-                          patient.profilePicture,
-                        ),
+                        backgroundImage: AssetImage(patient.profilePicture),
                         radius: 48,
                       ),
                       const SizedBox(height: 16),

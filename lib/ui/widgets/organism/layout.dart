@@ -60,6 +60,7 @@ class _LayoutState extends State<Layout> {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.white,
       child: Scaffold(
         appBar: widget.appBar,
         bottomNavigationBar: widget.bottomNavigationBar,

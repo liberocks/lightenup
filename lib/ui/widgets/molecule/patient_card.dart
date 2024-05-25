@@ -30,48 +30,45 @@ class PatientCard extends StatelessWidget {
     return InkWell(
       onTap: onTap as void Function()?,
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        alignment: Alignment.center,
+        constraints: const BoxConstraints(
+          minHeight: 80,
+        ),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: HexColor('#F0EBE8'),
+          border: Border.all(color: HexColor('#CAC4D0')),
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: Container(
-          alignment: Alignment.center,
-          constraints: const BoxConstraints(
-            minHeight: 80,
-          ),
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: HexColor('#F0EBE8'),
-            border: Border.all(color: HexColor('#CAC4D0')),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  backgroundColor: HexColor('#AAAAAA'),
-                  backgroundImage: NetworkImage(profilePicture),
-                  radius: 20,
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundColor: HexColor('#AAAAAA'),
+                backgroundImage: AssetImage(profilePicture),
+                radius: 20,
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Heading(
+                      text: name,
+                      size: SizeOfThing.medium,
+                      color: HexColor('#1D1B20'),
+                    ),
+                    Body(
+                      text: diagnosis,
+                      size: SizeOfThing.large,
+                      color: HexColor('#1D1B20'),
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Heading(
-                        text: name,
-                        size: SizeOfThing.medium,
-                        color: HexColor('#1D1B20'),
-                      ),
-                      Body(
-                        text: diagnosis,
-                        size: SizeOfThing.large,
-                        color: HexColor('#1D1B20'),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

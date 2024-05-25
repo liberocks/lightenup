@@ -20,7 +20,8 @@ class ChoiceScreen extends StatelessWidget {
     }
 
     return Layout(
-      child: SizedBox(
+      child: Container(
+        color: Colors.white,
         height: double.infinity,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
