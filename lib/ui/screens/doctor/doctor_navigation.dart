@@ -50,9 +50,10 @@ class DoctorMainScreen extends StatelessWidget {
                             color: Colors.purple[100]!,
                             selected: doctorNavigationState ==
                                 const DoctorNavigationState.assignments(),
-                            onTap: context
-                                .read<DoctorNavigationCubit>()
-                                .switchToAssignments,
+                            // onTap: context
+                            //     .read<DoctorNavigationCubit>()
+                            //     .switchToAssignments,
+                            onTap: () {},
                           ),
                           NavigationItem(
                             text: 'Schedule',
@@ -60,9 +61,10 @@ class DoctorMainScreen extends StatelessWidget {
                             color: Colors.purple[100]!,
                             selected: doctorNavigationState ==
                                 const DoctorNavigationState.schedule(),
-                            onTap: context
-                                .read<DoctorNavigationCubit>()
-                                .switchToSchedule,
+                            // onTap: context
+                            //     .read<DoctorNavigationCubit>()
+                            //     .switchToSchedule,
+                            onTap: () {},
                           ),
                           NavigationItem(
                             text: 'Profile',
@@ -70,9 +72,10 @@ class DoctorMainScreen extends StatelessWidget {
                             color: Colors.purple[100]!,
                             selected: doctorNavigationState ==
                                 const DoctorNavigationState.profile(),
-                            onTap: context
-                                .read<DoctorNavigationCubit>()
-                                .switchToProfile,
+                            // onTap: context
+                            //     .read<DoctorNavigationCubit>()
+                            //     .switchToProfile,
+                            onTap: () {},
                           ),
                         ],
                       ),

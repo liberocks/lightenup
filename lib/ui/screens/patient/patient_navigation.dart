@@ -60,9 +60,10 @@ class PatientMainScreen extends StatelessWidget {
                             color: Colors.purple[100]!,
                             selected: patientNavigationState ==
                                 const PatientNavigationState.profile(),
-                            onTap: context
-                                .read<PatientNavigationCubit>()
-                                .switchToProfile,
+                            // onTap: context
+                            //     .read<PatientNavigationCubit>()
+                            //     .switchToProfile,
+                            onTap: () {},
                           ),
                         ],
                       ),
