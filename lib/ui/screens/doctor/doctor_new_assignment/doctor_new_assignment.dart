@@ -187,73 +187,48 @@ class _DoctorNewAssignmentScreenState extends State<DoctorNewAssignmentScreen> {
                 spacing: 32,
                 runSpacing: 16,
                 children: [
-                  ChoiceCard(
-                    boxSize: (MediaQuery.of(context).size.width - 32) / 2 - 16,
-                    asset: 'assets/images/anxiety.png',
-                    text: 'Anxiety',
-                    onTap: () {
-                      setState(() {
-                        step = 1;
-                        topic = "anxiety";
-                      });
-                    },
-                  ),
-                  ChoiceCard(
-                    boxSize: (MediaQuery.of(context).size.width - 32) / 2 - 16,
-                    asset: 'assets/images/depression.png',
-                    text: 'Depression',
-                    onTap: () {
-                      setState(() {
-                        step = 1;
-                        topic = "depression";
-                      });
-                    },
-                  ),
-                  ChoiceCard(
-                    boxSize: (MediaQuery.of(context).size.width - 32) / 2 - 16,
-                    asset: 'assets/images/cbt.png',
-                    text: 'CBT',
-                    onTap: () {
-                      setState(() {
-                        step = 1;
-                        topic = "cbt";
-                      });
-                    },
-                  ),
-                  ChoiceCard(
-                    boxSize: (MediaQuery.of(context).size.width - 32) / 2 - 16,
-                    asset: 'assets/images/grief.png',
-                    text: 'Grief',
-                    onTap: () {
-                      setState(() {
-                        step = 1;
-                        topic = "grief";
-                      });
-                    },
-                  ),
-                  ChoiceCard(
-                    boxSize: (MediaQuery.of(context).size.width - 32) / 2 - 16,
-                    asset: 'assets/images/parenting.png',
-                    text: 'Parenting & Behaviour',
-                    onTap: () {
-                      setState(() {
-                        step = 1;
-                        topic = "parenting_and_behaviour";
-                      });
-                    },
-                  ),
-                  ChoiceCard(
-                    boxSize: (MediaQuery.of(context).size.width - 32) / 2 - 16,
-                    asset: 'assets/images/stress.png',
-                    text: 'Stress',
-                    onTap: () {
-                      setState(() {
-                        step = 1;
-                        topic = "stress";
-                      });
-                    },
-                  ),
-                ],
+                  {
+                    'asset': 'assets/images/anxiety.png',
+                    'text': 'Anxiety',
+                  },
+                  {
+                    'asset': 'assets/images/cbt.png',
+                    'text': 'CBT',
+                  },
+                  {
+                    'asset': 'assets/images/depression.png',
+                    'text': 'Depression',
+                  },
+                  {
+                    'asset': 'assets/images/grief.png',
+                    'text': 'Grief',
+                  },
+                  {
+                    'asset': 'assets/images/parenting.png',
+                    'text': 'Parenting & Behaviour',
+                  },
+                  {
+                    'asset': 'assets/images/stress.png',
+                    'text': 'Stress',
+                  },
+                ]
+                    .map(
+                      (e) => ChoiceCard(
+                        boxSize:
+                            (MediaQuery.of(context).size.width - 32) / 2 - 16,
+                        asset: e['asset']!,
+                        text: e['text']!,
+                        onTap: () {
+                          if (e['text'] == 'Anxiety') {
+                            setState(() {
+                              step = 1;
+                              topic = "anxiety";
+                            });
+                          }
+                        },
+                      ),
+                    )
+                    .toList(),
               ),
             ),
           ],
