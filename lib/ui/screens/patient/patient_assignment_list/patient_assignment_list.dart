@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -33,12 +34,7 @@ class _PatientAssignmentListScreenState
 
         return Layout(
           appBar: AppBar(
-            title: InkWell(
-              child: const Text('Assignments'),
-              onLongPress: () {
-                context.read<PatientAssignmentCubit>().resetDemo();
-              },
-            ),
+            title: const Text('Assignments'),
             centerTitle: false,
             leading: IconButton(
               icon: const Icon(Icons.arrow_back),
@@ -63,19 +59,23 @@ class _PatientAssignmentListScreenState
                   children: [
                     const Heading(text: 'Ongoing'),
                     ...ongoingAssignments.map((assignment) {
-                      return AssignmentCard(
-                        title: assignment.title,
-                        type: assignment.type,
-                        date: assignment.createdAt,
-                        onTap: () {
-                          context.router.push(
-                            PatientAssignmentDetailRoute(
-                              assignment: assignment,
-                            ),
-                          );
-                        },
-                      );
-                    }),
+                      return [
+                        const SizedBox(height: 12),
+                        AssignmentCard(
+                          textColor: HexColor('#1D1B20'),
+                          title: assignment.title,
+                          type: assignment.type,
+                          date: assignment.createdAt,
+                          onTap: () {
+                            context.router.push(
+                              PatientAssignmentDetailRoute(
+                                assignment: assignment,
+                              ),
+                            );
+                          },
+                        ),
+                      ];
+                    }).flattened,
                     Visibility(
                       visible: ongoingAssignments.isEmpty,
                       child: Container(
@@ -108,14 +108,17 @@ class _PatientAssignmentListScreenState
                             ),
                           ),
                           ...completedAssignments.map((assignment) {
-                            return AssignmentCard(
-                              color: HexColor('F8F8F8'),
-                              title: assignment.title,
-                              type: assignment.type,
-                              date: assignment.createdAt,
-                              onTap: () {},
-                            );
-                          }),
+                            return [
+                              const SizedBox(height: 12),
+                              AssignmentCard(
+                                color: HexColor('F8F8F8'),
+                                title: assignment.title,
+                                type: assignment.type,
+                                date: assignment.createdAt,
+                                onTap: () {},
+                              ),
+                            ];
+                          }).flattened,
                         ],
                       ),
                     ),

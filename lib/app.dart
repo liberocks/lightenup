@@ -58,6 +58,9 @@ class _MyAppState extends State<MyApp> {
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: MaterialApp.router(
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSwatch(backgroundColor: Colors.white),
+          ),
           routerConfig: router.config(),
           title: 'LightenUp',
           localizationsDelegates: const [

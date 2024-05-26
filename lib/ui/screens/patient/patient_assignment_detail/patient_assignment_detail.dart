@@ -192,10 +192,7 @@ class PatientAssignmentDetailScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(width: 12),
                                 Expanded(
-                                  child: Body(
-                                    text: preparation,
-                                    size: SizeOfThing.medium,
-                                  ),
+                                  child: HtmlWidget(preparation),
                                 ),
                               ],
                             ),

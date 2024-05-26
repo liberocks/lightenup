@@ -38,7 +38,20 @@ class _PatientAssignmentSocratesQuestionsScreenState
 
     answer = PatientAssignmentAnswer(
       assignmentId: widget.assignment.id,
-      worksheets: widget.assignment.worksheets,
+      worksheets: widget.assignment.worksheets
+          .map(
+            (e) => PatientWorksheet(
+              page: e.page,
+              name: e.name,
+              title: e.title,
+              subtitle: e.subtitle,
+              hint: e.hint,
+              // populate model answer
+              answer: e.modelAnswer,
+              modelAnswer: e.modelAnswer,
+            ),
+          )
+          .toList(),
       date: DateTime.now(),
     );
   }
@@ -145,7 +158,8 @@ class _PatientAssignmentSocratesQuestionsScreenState
                 ),
               ),
             ),
-            Padding(
+            Container(
+              color: Colors.white,
               padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
                 vertical: 10,
@@ -307,7 +321,8 @@ class _PatientAssignmentSocratesQuestionsScreenState
                 ),
               ),
             ),
-            Padding(
+            Container(
+              color: Colors.white,
               padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
                 vertical: 10,
@@ -474,7 +489,8 @@ class _PatientAssignmentSocratesQuestionsScreenState
                 ),
               ),
             ),
-            Padding(
+            Container(
+              color: Colors.white,
               padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
                 vertical: 10,
@@ -509,7 +525,8 @@ class _PatientAssignmentSocratesQuestionsScreenState
                             ],
                           ),
                         ),
-                        Padding(
+                        Container(
+                          color: Colors.white,
                           padding: const EdgeInsets.symmetric(vertical: 8),
                           child: Divider(
                             color: HexColor('#EBEBEB'),
@@ -532,7 +549,6 @@ class _PatientAssignmentSocratesQuestionsScreenState
     switch (page) {
       case -1:
         return summaryPage;
-
       case 0:
         return firstPage;
       default:

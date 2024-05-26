@@ -12,6 +12,7 @@ class PatientWorksheet with _$PatientWorksheet {
     @Default('') String subtitle,
     @Default('') String hint,
     @Default('') String answer,
+    @Default('') String modelAnswer,
   }) = _PatientWorksheet;
 
   factory PatientWorksheet.fromJson(Map<String, dynamic> json) =>

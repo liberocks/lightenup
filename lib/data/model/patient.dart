@@ -12,7 +12,7 @@ class Patient with _$Patient {
     required String diagnosis,
     required String profilePicture,
     @Default([]) List<PatientAssignment> assignments,
-    @Default([]) List<PatientAssignmentAnswer> assignmentAnswers,
+    @Default([]) List<PatientAssignment> assignmentAnswers,
     @Default([]) List<PatientMood> moods,
   }) = _Patient;
 

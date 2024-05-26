@@ -10,8 +10,6 @@ class ChoiceCubit extends HydratedCubit<ChoiceState> {
     emit(state.copyWith(mode: mode));
   }
 
-  void reset() {}
-
   @override
   ChoiceState fromJson(Map<String, dynamic> json) {
     return ChoiceState.fromJson(json);

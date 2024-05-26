@@ -6,6 +6,7 @@ import 'package:lightenup/constants/constants.dart';
 import 'package:lightenup/cubit/cubit.dart';
 import 'package:lightenup/router.dart';
 import 'package:lightenup/ui/widgets/widgets.dart';
+import 'package:toastification/toastification.dart';
 
 @RoutePage()
 class ChoiceScreen extends StatelessWidget {
@@ -32,7 +33,20 @@ class ChoiceScreen extends StatelessWidget {
                   top: MediaQuery.of(context).size.height * 0.15,
                 ),
                 width: MediaQuery.of(context).size.width * 0.8,
-                child: Image.asset('assets/images/logo.png'),
+                child: InkWell(
+                  onTap: () {
+                    context.read<DoctorPatientListCubit>().resetPatientList();
+                    context.read<PatientAssignmentCubit>().resetDemo();
+                    toastification.show(
+                      alignment: Alignment.bottomCenter,
+                      style: ToastificationStyle.fillColored,
+                      context: context,
+                      showProgressBar: false,
+                      title: const Text('Demo data is reset'),
+                    );
+                  },
+                  child: Image.asset('assets/images/logo.png'),
+                ),
               ),
               Headline(
                 text: 'Demo app as:',

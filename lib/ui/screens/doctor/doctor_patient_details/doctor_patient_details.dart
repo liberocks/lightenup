@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -394,14 +395,21 @@ class _DoctorPatientDetailsScreenState
                         text: 'Last assignment',
                         color: HexColor('#111111'),
                       ),
-                      AssignmentCard(
-                        color: HexColor('F8F8F8'),
-                        title: 'Anxiety Worksheet',
-                        type: AssignmentType.Socratic_Questions,
-                        date: DateTime.now(),
-                        status: 'Finished',
-                        onTap: () {},
-                      ),
+                      ...patient.assignments.map((e) {
+                        return [
+                          const SizedBox(height: 12),
+                          AssignmentCard(
+                            color: HexColor('EFEFEF'),
+                            textColor: HexColor('#111111'),
+                            title: e.title,
+                            type: e.type,
+                            date: e.createdAt,
+                            status: 'Not completed',
+                            onTap: () {},
+                          ),
+                        ];
+                      }).flattened,
+                      const SizedBox(height: 32),
                     ],
                   ),
                 ),

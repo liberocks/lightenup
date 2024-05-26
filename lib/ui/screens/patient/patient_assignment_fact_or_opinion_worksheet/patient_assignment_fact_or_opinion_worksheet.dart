@@ -51,6 +51,7 @@ class _PatientAssignmentFactOrOpinionScreenState
 
     return Layout(
       bottomNavigationBar: Container(
+        color: Colors.white,
         height: 130,
         width: double.infinity,
         padding: const EdgeInsets.all(16),
@@ -187,7 +188,8 @@ class _PatientAssignmentFactOrOpinionScreenState
                 ),
               ),
             ),
-            Padding(
+            Container(
+              color: Colors.white,
               padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
                 vertical: 10,

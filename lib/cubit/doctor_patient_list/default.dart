@@ -1,3 +1,4 @@
+import 'package:lightenup/cubit/patient_assignment/default.dart';
 import 'package:lightenup/data/model/model.dart';
 
 List<Patient> defaultPatients = [
@@ -7,7 +8,7 @@ List<Patient> defaultPatients = [
     diagnosis: 'Anxiety',
     profilePicture: 'assets/images/photo-1515077678510-ce3bdf418862.jpeg',
     assignmentAnswers: [],
-    assignments: [],
+    assignments: [defaultAssignments[0]],
     moods: [
       PatientMood(
         id: -1,
