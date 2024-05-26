@@ -25,7 +25,7 @@ class PatientMoodHistoryScreen extends StatefulWidget {
 
 class _PatientMoodHistoryScreenState extends State<PatientMoodHistoryScreen> {
   DateTime selectedDate = DateTime.now();
-  int selectedIndex = DateTime.now().weekday;
+  int selectedIndex = DateTime.now().weekday - 1;
   List<PatientMood> moods = [];
 
   List<PatientMood> randomizeAnswers(DateTime currentDate) {
