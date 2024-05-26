@@ -108,6 +108,11 @@ extension DateLogic on DateTime {
     final nextWeekDate = lastDayOfWeek();
     return month != nextWeekDate.month;
   }
+
+  bool hasYearTransitionInTheWeek() {
+    final nextWeekDate = lastDayOfWeek();
+    return year != nextWeekDate.year;
+  }
 }
 
 extension DateFormatter on DateTime {

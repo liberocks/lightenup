@@ -203,8 +203,11 @@ class _PatientMoodHistoryScreenState extends State<PatientMoodHistoryScreen> {
     final endOfTheWeek = selectedDate.lastDayOfWeek();
 
     final isSameMonth = !selectedDate.hasMonthTransitionInTheWeek();
+    final isDifferentYear = !selectedDate.hasYearTransitionInTheWeek();
 
-    if (isSameMonth) {
+    if (isDifferentYear) {
+      return '${startOfTheWeek.format(pattern: 'dd MMM yyyy')} - ${endOfTheWeek.format(pattern: 'dd MMM yyyy')}';
+    } else if (isSameMonth) {
       return '${startOfTheWeek.format(pattern: 'dd')} - ${endOfTheWeek.format(pattern: 'dd MMM yyyy')}';
     } else {
       return '${startOfTheWeek.format(pattern: 'dd MMM')} - ${endOfTheWeek.format(pattern: 'dd MMM yyyy')}';
